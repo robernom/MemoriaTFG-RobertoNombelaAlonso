@@ -23,13 +23,16 @@
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
 \usepackage[latin1]{inputenc}
-\usepackage[spanish]{babel} % Comenta esta línea si tu memoria es en inglés
+\usepackage[spanish,es-tabla]{babel} % Comenta esta línea si tu memoria es en inglés
 \usepackage{url}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{forest}
 
 \title{Memoria del Proyecto}
 \author{Nombre del autor}
@@ -61,26 +64,25 @@
 \vspace{3cm}
 
 \Large
-TITULACIÓN EN MAYÚSCULAS
+INGENIERÍA EN SISTEMAS AUDIOVISUALES Y MULTIMEDIA
 
 \vspace{0.4cm}
 
 \large
-Curso Académico 20XX/20XX
+Curso Académico 2017/2018
 
 \vspace{0.8cm}
 
-Trabajo Fin de Grado/Máster
+Trabajo Fin de Grado
 
 \vspace{2.5cm}
 
 \LARGE
-TÍTULO DEL TRABAJO EN MAYÚSCULAS
-
+EVALUACIÓN DE PROYECTOS APP INVENTOR
 \vspace{4cm}
 
 \large
-Autor : Nombre del Alumno/a \\
+Autor : Roberto Nombela Alonso \\
 Tutor : Dr. Gregorio Robles
 \end{center}
 \end{titlepage}
@@ -99,21 +101,21 @@ Tutor : Dr. Gregorio Robles
 \vspace{-4cm}
 \begin{center}
 \LARGE
-\textbf{Trabajo Fin de Grado/Máster}
+\textbf{Trabajo Fin de Grado}
 
 \vspace{1cm}
 \large
-Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
+Evaluación de Proyectos App Inventor 
 
 \vspace{1cm}
 \large
-\textbf{Autor :} Nombre del Alumno/a \\
+\textbf{Autor :} Roberto Nombela Alonso \\
 \textbf{Tutor :} Dr. Gregorio Robles Martínez
 
 \end{center}
 
 \vspace{1cm}
-La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 20XX, siendo calificada por el siguiente tribunal:
+La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2018, siendo calificada por el siguiente tribunal:
 
 
 \vspace{0.5cm}
@@ -135,7 +137,7 @@ y habiendo obtenido la siguiente calificación:
 
 \vspace{1cm}
 \begin{flushright}
-Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20XX
+Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2018
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,7 +147,8 @@ Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20XX
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
 \textit{Dedicado a \\
-mi familia / mi abuelo / mi abuela}
+mi familia y, en especial, a Sofía. \\
+Sin ella no habría llegado hasta aquí.}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -155,8 +158,15 @@ mi familia / mi abuelo / mi abuela}
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
 
-Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutará tanto de tus logros como tú\ldots 
-Además, la pareja quizás no sea para siempre, pero tu madre sí.
+En primer lugar quiero dar las gracias a mi familia. Que siempre ha estado tan pendiente de mí, apoyándome en todo momento, consolándome tras cada fallo y alegrándose de mis logros. Saber que puedo contar con vosotros cuando lo necesite me ha dado (y me da) fuerzas.\\
+
+Por otro lado, agradecer a Ahmed, Álvaro y Ángel, mis compañeros de batalla. Por las tardes y noches de Skype, las prácticas interminables y los ejercicios irresolubles, pero siempre con buen humor. Si sobrevivo a esta carrera es gracias a vosotros.\\
+
+Gracias a todos mis compañeros y amigos, no quiero decir nombres porque me dejaría a alguien y no sería justo. A los que se preocuparon por cómo me iba y me animaron a seguir, a los que tuvieron buenas palabras en momentos malos. En definitiva, a los que han estado.\\
+
+Agradecer a Gregorio la oportunidad única que me ha brindado con la Beca de Colaboración y toda la ayuda que me ha proporcionado.\\
+
+Por último pero no por ello menos importante, quiero dar las gracias a Sofía. Por todo. Desde que se vino a Madrid no he vuelto a repetir ninguna asignatura. Las casualidades no existen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -220,87 +230,52 @@ just before submitting.
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-En este capítulo se introduce el proyeto. Debería tener información general sobre el mismo, dando la información sobre el contexto en el que se ha desarrollado.
+Este trabajo realiza un análisis de proyectos App Inventor\footnote{\url{http://ai2.appinventor.mit.edu/}}, obtenidos de su propia galería pública. Para el análisis, fue necesario desarrollar antes una herramienta, llamada Dr. App Inventor, que extrae y clasifica los bloques de cada proyecto y devuelve una puntuación en función de unos criterios que evalúan el Pensamiento Computacional, término sobre el que se cimienta este trabajo.
 
-No te olvides de echarle un ojo a la página con los cinco errores de escritura más frecuentes\footnote{\url{http://www.tallerdeescritores.com/errores-de-escritura-frecuentes}}.
+\section{Contexto}
+\label{sec:context}
 
-Aconsejo a todo el mundo que mire y se inspire en memorias pasadas. Las mías están todas almacenadas en mi web del GSyC\footnote{\url{https://gsyc.urjc.es/~grex/pfcs/}}.
+En el año 2006, J. Wing presentó el concepto del Pensamiento Computacional~\cite{wing2006computational}
+como un proceso de razonamiento que permite formular y resolver problemas de cualquier ámbito, es decir, no se restringe a las matemáticas o a la programación, lo que significa que cualquier persona puede beneficiarse de pensar como un informático. El Pensamiento Computacional consta de una serie de aptitudes que permiten abarcar un problema: abstracción, pensamiento paralelo, pensamiento algorítmico, representación de datos.
 
-\section{Sección}
-\label{sec:seccion}
+Una manera de desarrollar dichas aptitudes es mediante la programación, que fomenta la creatividad y el uso de la lógica~\cite{resnick2009scratch}. Programar implica plasmar pensamientos en forma de código y representar externamente el proceso de resolución de un problema.
+Los lenguajes de programación visual basados en bloques se caracterizan por ser realmente intuitivos, lo que los hace perfectos candidatos para mejorar las habilidades de las personas que no están del todo familiarizadas con la programación.
 
-Esto es una sección, que es una estructura menor que un capítulo. 
+Consecuentemente, han aparecido herramientas que evalúan el Pensamiento Computacional en los proyectos de estos lenguajes. Su objetivo es mostrar los puntos fuertes y carencias del autor. En la sección \ref{sec:dr-ai} se darán detalles de cómo evalúan. Estas herramientas han comenzado a utilizarse en centros educativos, de modo que profesores y alumnos pueden beneficiarse de la evaluación que ofrecen.
 
-Por cierto, a veces me comentáis que no os compila por las tildes.
-Eso es un problema de codificación.
-Cambiad de ``UTF-8'' a ``ISO-Latin-1'' (o vicecersa) y funcionará.
+\section{Motivación}
+\label{sec:motiv}
 
-\subsection{Estilo}
-\label{subsec:estilo}
+Estudios recientes han descubierto que las herramientas de análisis han resultado ser más útiles para los profesores a la hora de corregir, que para los alumnos a la hora de mejorar~\cite{robles2018ontools}
+No obstante, si queremos que dichas herramientas cumplan con una función más didáctica, hemos de dedicar mayor atención al proceso de aprendizaje. Por ello realizamos este análisis, para obtener una visión general de los proyectos que está desarrollando la comunidad de App Inventor y con esta visión, encontrar posibles formas de ayudar al alumno a mejorar sus habilidades, ya sea mediante lecciones, consejos o ejemplos, con la idea de introducirlas en la herramienta. 
 
-Recomiendo leer los consejos prácticos sobre LaTeX de Diomidos 
-Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
+\subsection*{Motivación Personal}
+\label{subsec: pers-motiv}
 
-Sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}
-
-A continuación, viene una figura, la Figura~\ref{figura:foro_hilos}. 
-Observarás que el texto dentro del a referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
-También habrás tomado nota de cómo se ponen las ``comillas dobles'' para que se muestren correctamente. 
-Volviendo a las referencias, nota que al compilar, la primera vez se crea un diccionario con las referencias, y en la segunda compilación se ``rellenan'' estas referencias. 
-Por eso hay que compilar dos veces.
-
- \begin{figure}
-    \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
-    \caption{Página con enlaces a hilos}
-    \label{figura:foro_hilos}
- \end{figure}
-
-{\footnotesize
-\begin{verbatim}
-    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
-    From: gaurav at gold-solutions.co.uk (gaurav_gold)
-    Date: Fri Jan 14 19:25:51 2005
-    Subject: [Mailman-Users] mailman issues
-    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-
-    Dear Sir/Madam,
-    How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-    Thanks
-
-    From msapiro at value.net  Fri Jan 14 19:48:51 2005
-    From: msapiro at value.net (Mark Sapiro)
-    Date: Fri Jan 14 19:49:04 2005
-    Subject: [Mailman-Users] mailman issues
-    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-    Message-ID: <PC173020050114104851057801b04d55@msapiro>
-
-    gaurav_gold wrote:
-    >How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-
-    See the FAQ
-    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
-    article 3.11
-\end{verbatim}
-}
+Desde un punto de vista personal, hay tres elementos clave que han hecho que me decantara por este proyecto: 
+\begin{itemize}
+\item Ayudar a otras personas a aprender: siempre me ha gustado compartir lo que sé con compañeros y amigos que lo han necesitado, buscando la mejor manera de explicarme para que lo comprendieran.
+\item Crear una aplicación web: por las comodidades que ofrece, en cuanto a compatibilidad, respecto a las aplicaciones de escritorio. 
+\item Realizar un análisis de datos: la Ciencia de Datos es un campo en crecimiento y ya tenía interés en introducirme. Ha sido la excusa perfecta.
+\end{itemize}
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-En esta sección se debería introducir la esctura de la memoria. Así:
+En esta sección se detalla la estructura de la memoria, la cual está dividida en 6 capítulos. Cada uno de estos capítulos se explica a continuación:
 
 \begin{itemize}
-  \item En el primer capítulo se hace una intro al proyecto.
+  \item El capítulo 1 es una Introducción al proyecto, donde se da a conocer el contexto en el que se enmarca, se explica la motivación por la cual se ha llevado a cabo y se muestra la estructura que sigue.
   
-  \item En el capítulo~\ref{chap:objetivos} (ojo, otra referencia automática) se muestran los objetivos del proyecto.
+  \item En el capítulo~\ref{chap:objetivos} se muestra el objetivo principal del proyecto, junto con los subobjetivos necesarios para cumplirlo. Cada subobjetivo muestra el periodo de tiempo durante el que se realizó.
   
-  \item A continuación se presenta el estado del arte.
+  \item Estado del arte: en este capítulo se exponen con una breve explicación las tecnologías existentes que se han utilizado para la realización del trabajo.
   
-  \item \ldots
+  \item Diseño e implementación:
+  
+  \item Resultados:
+  
+  \item Conclusiones:
 \end{itemize}
 
 
@@ -316,19 +291,27 @@ En esta sección se debería introducir la esctura de la memoria. Así:
 
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
-
-Aquí vendría el objetivo general en una frase:
-Mi trabajo fin de grado consiste en crear de una herramienta de análisis de los comentarios jocosos en repositorios de software libre alojados en la plataforma GitHub.
-
-Recuerda que los objetivos siempre vienen en infinitivo.
+ 
+El objetivo principal de este proyecto es buscar caminos de aprendizaje que permitan a los alumnos (o cualquier persona interesada en aprender) mejorar sus habilidades de pensamiento computacional utilizando App Inventor. Para ello, vamos a analizar los proyectos de la comunidad App Inventor, con el que obtendremos una visión general de los proyectos que se están desarrollando. Con esta visión 
 
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
 
-Los objetivos específicos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
-Y, sí, también vienen en infinitivo.
+En el proceso de alcanzar el objetivo general ha sido necesario realizar antes unas tareas u objetivos específicos que se exponen a continuación:
+\begin{enumerate}[1.]
+\item Conocer la estructura de App Inventor: uso y funcionamiento, los tipos de bloques y componentes que pueden emplearse en los proyectos y los ficheros que forman un proyecto.
+	
+\item Desarrollar Dr. App Inventor: una aplicación web sobre Django, analogía de Dr. Scratch\footnote{\url{http://drscratch.org/}} para evaluar proyectos App Inventor. El desarrollo de Dr. App Inventor se explicará con detalle en el capítulo~\ref{chap:design}.
 
+\item Adaptar el algoritmo de Dr. App Inventor para extraer bloques y evaluar varios proyectos, guardando esta información en ficheros CSV.
+
+\item Obtener de la galería de App Inventor una gran cantidad de proyectos.
+
+\item Analizar los CSV obtenidos con Dr. App Inventor utilizando la librería Pandas en un Jupyter Notebook.
+\end{enumerate}
+
+% Podría unir los objetivos específicos con la planificación temporal
 
 \section{Planificación temporal}
 \label{sec:planificacion-temporal}
@@ -346,38 +329,92 @@ Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 
 \cleardoublepage
 \chapter{Estado del arte}
 
-Descripción de las tecnologías que utilizas en tu trabajo. 
-Con dos o tres párrafos por cada tecnología, vale. 
-Se supone que aquí viene todo lo que no has hecho tú.
+En este apartado se describen las diferentes tecnologías que se han utilizado para llevar a cabo este proyecto.
 
-Puedes citar libros, como el de Bonabeau et al. sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. % Nota que el ~ añade un espacio en blanco, pero no deja que exista un salto de línea. Imprescindible ponerlo para las citas.
+\section{App Inventor}
+\label{sec:ai}
 
-También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página de LibreSoft\footnote{\url{http://www.libresoft.es}}.
+App Inventor~\cite{wolber2011app} es un entorno de programación visual que permite crear aplicaciones móviles para Android. Surge para ayudar a las personas a pasar del consumo de tecnología a la creación. El ``código" que utiliza son bloques que los usuarios pueden arrastrar y soltar, para unirlos entre sí como si fuera un puzzle.
 
-\section{Sección 1} 
-\label{sec:seccion1}
+Este entorno utiliza dos modos para la creación de una aplicación: \emph{Blocks} y \emph{Designer}. En las figuras~\ref{figura:ai-blocks} y~\ref{figura:ai-designer} \footnote{Fuente: \url{http://explore.appinventor.mit.edu/designer-blocks}}, se muestran las pantallas de ambos modos con los diferentes elementos que los conforman.
 
-Hemos hablado de cómo incluir figuras.
-Pero no hemos dicho nada de tablas.
-A mí me gustan las tablas.
-Mucho.
-Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo}.
+\textbf{Blocks}: en este modo se define el comportamiento de la aplicación, es decir, se implementa el algoritmo. Hay 8 tipos diferentes de bloques: Control, Logic, Math, Text, Lists, Colors, Variables y Procedures. Además, se pueden ver bloques específicos de componentes. Estos componentes deben haberse seleccionado previamente en el modo Designer.
 
-\begin{table}
+  \begin{figure}
+    \centering
+    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/ai-blocks}
+    \caption{Elementos del modo Blocks.}
+    \label{figura:ai-blocks}
+ \end{figure}
+ 
+\textbf{Designer}: en este modo se seleccionan los componentes que van a constituir la aplicación. Estos componentes pueden ser visuales (los que formarán la interfaz de usuario) o no visuales (diversas funcionalidades del dispositivo como el acelerómetro o el bluetooth, bases de datos o comandos que permiten controlar robots LEGO® MINDSTORMS® NXT).
+ 
+  \begin{figure}
+    \centering
+    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/ai-designer}
+    \caption{Elementos del modo Designers.}
+    \label{figura:ai-designer}
+ \end{figure}
+
+%Con dos o tres párrafos por cada tecnología, vale. 
+
+\section{Python} 
+\label{sec:python}
+
+Python en un lenguaje de programación interpretado, interactivo y orientado a objetos~\cite{kuhlman2011python}. Su creador, Guido van Rossum, explicó que Python surgió como un ``hobby'' para mantenerse ocupado durante las Navidades de 1989, basándose en el lenguaje ABC, con el pensamiento de que esto atraería a los programadores de Unix/C~\cite{lutz2010programming}. 
+
+Entre sus características destacan el gran número de módulos que posee, la posibilidad de incluir código C o C++ para aumentar la velocidad, la portabilidad (Windows, Mac y algunas variantes de Unix) pero, sobre todo, destaca por su filosofía:
+
+Esta filosofía, conocida como ``El Zen de Python'', fue escrita por Tim Peters. Forma parte de las Propuestas de Mejoras de Python (PEP 20\footnote{\url{https://www.python.org/dev/peps/pep-0020/}}) y aboga por que el código sea:
+\begin{itemize}
+ \item Simple: ``Simple is better than complex''.
+ \item Legible: ``Readability counts''.
+ \item Claro: `If the implementation is hard to explain, it's a bad idea''.
+\end{itemize}
+
+\section{Django~\cite{bastida2012django}}
+\label{sec:django}
+
+Django\footnote{\url{https://www.djangoproject.com/}} es un framework para aplicaciones web, escrito en Python. Se basa en el patrón MVC (Figura) y permite un desarrollo rápido, con un diseño limpio y práctico gracias a su filosofía DRY (Don't Repeat Yourself). Debido a esto, destaca por tener un número reducido de ficheros y carpetas. En la Tabla~\ref{tabla:comp-django}, se observa una comparación con otros framework.
+% PROBLEMA: En la referencia pone Tabla 3.3 en vez de Tabla 3.1
+
+\begin{table}[H]
  \begin{center}
-  \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habrá una línea separadora.
+ \begin{tabular}{ | c | c | c | c |} 
     \hline
-    1 & 2 & 3 \\ \hline % el hline nos da una línea vertical
-    4 & 5 & 6 \\ \hline
-    7 & 8 & 9 \\
-    \hline
-  \end{tabular}
-  \label{tabla:ejemplo}
-  \caption{Ejemplo de tabla}
+   & Rails & Symfony & \textbf{Django} \\ \hline
+   Ficheros & 149 & 117 & \textbf{5} \\ \hline
+   Carpetas & 35 & 29 & \textbf{2} \\
+   \hline
+ \end{tabular}
+ \label{tabla:comp-django}
+ \caption{Ficheros y carpetas en Django vs. otros frameworks.}
  \end{center}
 \end{table}
 
+Otras ventajas que presenta Django son el ORM y el lenguaje de plantillas.
 
+ORM (Object-Relational Mapping): realiza un mapeo de diferentes bases de datos, de modo que el usuario no necesita conocer los comandos de SQLite o MySQL, ya que puede manejar las bases de datos empleando código de Python.
+
+Lenguaje de plantillas: permite introducir variables y lógica simple en un HTML del siguiente modo: \{\{ variable \}\}, \{\% código \%\}. Para el uso de variables, en el render se pasa como argumento el contexto: un diccionario clave-valor, donde la clave es el nombre que va a tomar la variable dentro de la plantilla y el valor es la variable en sí.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/django-mvc}
+  \caption{Estructura MVC de Django.}
+  \label{figura:mvc}
+\end{figure}
+
+\newpage{}
+\section{pandas}
+
+Es un paquete de Python\footnote{\url{https://pandas.pydata.org/pandas-docs/stable/release.html}} que permite el manejo de datos de una forma rápida y flexible. Su objetivo es ser el componente fundamental de alto nivel para realizar análisis de datos prácticos y reales en Python.
+
+Permite leer ficheros CSV, entre otros, y convertirlos en DataFrames (la estructura primaria de pandas). Se complementa con otros paquetes como NumPy (computación científica) y matplotlib (representación de gráficos).
+
+\subsection{Jupyter Notebook}
+
+Para ejecutar pandas se suele utilizar Jupyter Notebook\footnote{\url{http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html}}, una aplicación web donde se puede escribir código por líneas como si fuera un cuaderno. Permite mostrar, editar y ejecutar dicho código de manera que se visualicen cómodamente los resultados.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -386,27 +423,36 @@ Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo}.
 
 \cleardoublepage
 \chapter{Diseño e implementación}
+\label{chap:design}
 
-Aquí viene todo lo que has hecho tú (tecnológicamente). 
-Puedes entrar hasta el detalle. 
-Es la parte más importante de la memoria, porque describe lo que has hecho tú.
-Eso sí, normalmente aconsejo no poner código, sino diagramas.
+En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto que ya se mencionaron brevemente en la sección \ref{sec:objetivos-especificos}. La Figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos.
 
-\section{Arquitectura general} 
-\label{sec:arquitectura}
-
-Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
-
-Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
-
-\begin{figure}
+\begin{figure}[!h]
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
-  \caption{Estructura del parser básico}
-  \label{fig:arquitectura}
+  \includegraphics[width=16cm, keepaspectratio]{img/diag}
+  \caption{Diagrama de bloques del proyecto.}
+  \label{figura:diag}
 \end{figure}
 
-Si utilizas una base de datos, no te olvides de incluir también un diagrama de entidad-relación.
+\setcounter{section}{-1}
+\section{Dr. Scratch para App Inventor}
+\label{prev-dr-ai}
+
+Antes de empezar a implementar la aplicación web Dr. App Inventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de datos. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario feedback para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scracth} se puede ver un ejemplo de análisis de un proyecto.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/dr-scratch}
+  \caption{Análisis de un proyecto en Dr. Scratch.}
+  \label{figura:diag}
+\end{figure}
+
+En el caso de Dr. App Inventor, se ha implementado únicamente la evaluación de los proyectos ya que el análisis se centrará en el pensamiento computacional.
+
+\section{Dr. App Inventor como aplicación web}
+\label{sec:dr-ai}
+
+Una vez conocido el funcionamiento de Dr. Scratch y de App Inventor (sección~\ref{sec:ai}), se comienza con el proyecto en Django que dará lugar a la aplicación web. Lo primero de todo fue extraer los ficheros que formaban un programa en App Inventor, a continuación se pueden ver en forma de árbol: \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -444,31 +490,37 @@ Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problem
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+Para realizar este trabajo, me han resultado indispensables todas las asignaturas que he tenido relacionadas con la programación. A continuación, se enumeran en orden cronológico.
 
 \begin{enumerate}
-  \item a
-  \item b
+  \item Informática I, con el lenguaje ``Picky", donde aprendí los fundamentos básicos de la programación y que los problemas se resuelven ``paso a paso".
+  \item Informática II, con el lenguaje ADA. Mi primer contacto con la programación contrarreloj, me enseñó que no siempre voy a estar en un entorno cómodo y aún así voy a tener que desenvolverme.
+  \item Protocolos para la Transmisión de Audio y Vídeo en Internet: aquí conocí Python, lenguaje que he necesitado para crear la aplicación web con Django y para el análisis de datos con Pandas.
+  \item Construcción de Servicios y Aplicaciones Audiovisuales en Internet, Gráficos y Visualización 3D y Laboratorio de Tecnologías Audiovisuales en la Web: estas asignaturas se complementaban entre sí, me enseñaron todo lo que sé de tecnologías web: JavaScript, HTML, CSS...
 \end{enumerate}
 
+Sería injusto por mi parte no mencionar las demás asignaturas ya que, de un modo u otro, todas ellas me han aportado algo, me han ayudado a plantear y resolver los problemas que se presenten. En definitiva, me han ayudado a ser ingeniero.
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
+En esta sección se explican los conocimientos que fueron necesarios adquirir para el correcto desarrollo de este trabajo.
 
 \begin{enumerate}
-  \item a
-  \item b
+  \item La herramienta Django de Python: para la implementación de la aplicación web. Además, me sirvió para adelantar trabajo ya que, en la asignatura Laboratorio de Tecnologías Audiovisuales en la Web del segundo cuatrimestre de este curso, fue parte del temario.
+  \item La librería Pandas también de Python, me permitió tomar contacto con el análisis de datos y de la cual todavía me queda mucho por descubrir.
 \end{enumerate}
 
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Ningún software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
+En esta sección se proponen sugerencias o ideas para futuros trabajos con intención de mejorar las habilidades del pensamiento computacional:
 
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+\begin{itemize}
+  \item Siguiendo las posibles mejoras propuestas en~\cite{robles2018ontools}, un posible trabajo futuro es mostrar a los aprendices ejemplos y proponer ejercicios para que practiquen. Los ejemplos y ejercicios propuestos deben incluir bloques de Control y/o Procedimiento, una variedad alta o la combinación de ambos. Otro posible paso sería proporcionar retroalimentación personalizada a cada usuario basada en sus progresos y necesidades. Para llevar esto a cabo, podría extrapolarse el análisis realizado en este trabajo a los proyectos de cada usuario en concreto.
+  \item Otra medida que se propone en~\cite{robles2018ontools} es integrar las herramientas de análisis en sus entornos de desarrollo correspondientes, a raíz de esto puede surgir una medida aunque más extrema: diseñar un nuevo entorno orientado al desarrollo del pensamiento computacional.
+\end{itemize} 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
