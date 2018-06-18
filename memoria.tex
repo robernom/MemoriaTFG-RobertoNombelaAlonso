@@ -32,7 +32,7 @@
 \usepackage{latexsym}  %% Logo LaTeX
 \usepackage{enumerate}
 \usepackage{listings}
-\usepackage{forest}
+\usepackage{dirtree}
 
 \title{Memoria del Proyecto}
 \author{Nombre del autor}
@@ -292,8 +292,7 @@ En esta sección se detalla la estructura de la memoria, la cual está dividida en
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
  
-El objetivo principal de este proyecto es buscar caminos de aprendizaje que permitan a los alumnos (o cualquier persona interesada en aprender) mejorar sus habilidades de pensamiento computacional utilizando App Inventor. Para ello, vamos a analizar los proyectos de la comunidad App Inventor, con el que obtendremos una visión general de los proyectos que se están desarrollando. Con esta visión 
-
+El objetivo principal de este proyecto es buscar caminos de aprendizaje que permitan a los alumnos (o cualquier persona interesada en aprender) mejorar sus habilidades de pensamiento computacional utilizando App Inventor. Para ello, vamos a analizar los proyectos de la comunidad App Inventor, con el que obtendremos una visión general de los proyectos que se están desarrollando.
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
@@ -308,7 +307,7 @@ En el proceso de alcanzar el objetivo general ha sido necesario realizar antes u
 
 \item Obtener de la galería de App Inventor una gran cantidad de proyectos.
 
-\item Analizar los CSV obtenidos con Dr. App Inventor utilizando la librería Pandas en un Jupyter Notebook.
+\item Analizar los CSV obtenidos con Dr. App Inventor utilizando la librería pandas en un Jupyter Notebook.
 \end{enumerate}
 
 % Podría unir los objetivos específicos con la planificación temporal
@@ -369,26 +368,25 @@ Esta filosofía, conocida como ``El Zen de Python'', fue escrita por Tim Peters. 
 \begin{itemize}
  \item Simple: ``Simple is better than complex''.
  \item Legible: ``Readability counts''.
- \item Claro: `If the implementation is hard to explain, it's a bad idea''.
+ \item Claro: ``If the implementation is hard to explain, it's a bad idea''.
 \end{itemize}
 
 \section{Django~\cite{bastida2012django}}
 \label{sec:django}
 
-Django\footnote{\url{https://www.djangoproject.com/}} es un framework para aplicaciones web, escrito en Python. Se basa en el patrón MVC (Figura) y permite un desarrollo rápido, con un diseño limpio y práctico gracias a su filosofía DRY (Don't Repeat Yourself). Debido a esto, destaca por tener un número reducido de ficheros y carpetas. En la Tabla~\ref{tabla:comp-django}, se observa una comparación con otros framework.
-% PROBLEMA: En la referencia pone Tabla 3.3 en vez de Tabla 3.1
+Django\footnote{\url{https://www.djangoproject.com/}} es un framework para aplicaciones web, escrito en Python. Se basa en el patrón MVC (Figura~\ref{figura:mvc}) y permite un desarrollo rápido, con un diseño limpio y práctico gracias a su filosofía DRY (Don't Repeat Yourself). Debido a esto, destaca por tener un número reducido de ficheros y carpetas. En la Tabla~\ref{tabla:comp-django}, se observa una comparación con otros framework.
 
 \begin{table}[H]
  \begin{center}
- \begin{tabular}{ | c | c | c | c |} 
+ \begin{tabular}{ | l | r | r | r |} 
     \hline
    & Rails & Symfony & \textbf{Django} \\ \hline
    Ficheros & 149 & 117 & \textbf{5} \\ \hline
    Carpetas & 35 & 29 & \textbf{2} \\
    \hline
  \end{tabular}
- \label{tabla:comp-django}
  \caption{Ficheros y carpetas en Django vs. otros frameworks.}
+ \label{tabla:comp-django}
  \end{center}
 \end{table}
 
@@ -410,7 +408,9 @@ Lenguaje de plantillas: permite introducir variables y lógica simple en un HTML 
 
 Es un paquete de Python\footnote{\url{https://pandas.pydata.org/pandas-docs/stable/release.html}} que permite el manejo de datos de una forma rápida y flexible. Su objetivo es ser el componente fundamental de alto nivel para realizar análisis de datos prácticos y reales en Python.
 
-Permite leer ficheros CSV, entre otros, y convertirlos en DataFrames (la estructura primaria de pandas). Se complementa con otros paquetes como NumPy (computación científica) y matplotlib (representación de gráficos).
+Utiliza las estructuras de datos Series (matriz unidimensional capaz de contener cualquier tipo de datos) o DataFrames (estructura bidimensional, puede verse como un conjunto de Series). Los DataFrames son los más comúnmente utilizados en pandas.
+
+En pandas existe la opción de leer ficheros CSV, entre otros, y convertirlos en DataFrames. Se complementa con otros paquetes como NumPy (computación científica) y matplotlib (representación de gráficos).
 
 \subsection{Jupyter Notebook}
 
@@ -438,13 +438,13 @@ En este capítulo se explican los pasos necesarios para poder llevar a cabo el pr
 \section{Dr. Scratch para App Inventor}
 \label{prev-dr-ai}
 
-Antes de empezar a implementar la aplicación web Dr. App Inventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de datos. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario feedback para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scracth} se puede ver un ejemplo de análisis de un proyecto.
+Antes de empezar a implementar la aplicación web Dr. App Inventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario feedback para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=16cm, keepaspectratio]{img/dr-scratch}
   \caption{Análisis de un proyecto en Dr. Scratch.}
-  \label{figura:diag}
+  \label{figura:dr-scratch}
 \end{figure}
 
 En el caso de Dr. App Inventor, se ha implementado únicamente la evaluación de los proyectos ya que el análisis se centrará en el pensamiento computacional.
@@ -452,8 +452,125 @@ En el caso de Dr. App Inventor, se ha implementado únicamente la evaluación de l
 \section{Dr. App Inventor como aplicación web}
 \label{sec:dr-ai}
 
-Una vez conocido el funcionamiento de Dr. Scratch y de App Inventor (sección~\ref{sec:ai}), se comienza con el proyecto en Django que dará lugar a la aplicación web. Lo primero de todo fue extraer los ficheros que formaban un programa en App Inventor, a continuación se pueden ver en forma de árbol: \\
+Una vez conocido el funcionamiento de Dr. Scratch y de App Inventor (sección~\ref{sec:ai}), se comienza con el proyecto en Django que dará lugar a la aplicación web.
+\subsection{Extracción de bloques y componentes}
+\label{subsec:extract}
 
+El algoritmo comienza con la extracción de las carpetas y ficheros que forman un programa en App Inventor, para ello hay que descomprimir el archivo del programa como si fuera un ZIP. A continuación se puede ver en forma de árbol la estructura de los directorios obtenidos: 
+
+\dirtree{%
+.1 project.
+.2 assets.
+.3 MultimediaFiles.
+.2 src.
+.3 appinventor.
+.4 ai\_UserName.
+.5 ProjectName.
+.6 Screen1.bky.
+.6 Screen1.scm.
+.6 \dots .
+.6 ScreenN.bky.
+.6 ScreenN.scm.
+.2 youngandroidproject.
+.3 project.properties.
+}
+
+La carpeta \emph{assets} contiene los archivos multimedia (imágenes, audios y vídeos) que utiliza la aplicación. 
+
+La carpeta \emph{youngandroidproject} contiene el fichero con las propiedades de la aplicación, como por ejemplo: el nombre del proyecto en App Inventor, el nombre de la app o la versión. 
+
+La carpeta de verdadero interés para el análisis es \emph{src}, dentro de la cual están los ficheros .bky y .scm, cada una de las pantallas de la aplicación está formada por estos dos ficheros, cuyo nombre coincide con el nombre de la pantalla:
+\begin{itemize}
+  \item \textbf{bky}: este fichero contiene, en forma de XML, los bloques que componen el programa, sus propiedades y cómo se relacionan entre sí. Para extraer los bloques, el algoritmo tendrá que buscar todas las etiquetas \emph{block} y almacenar de cada una el atributo \emph{type}. Podemos ver un ejemplo de este tipo de fichero en la Figura~\ref{figura:bky}. En este ejemplo, el primer bloque que se almacenaría lo vemos en la segunda línea: component\_event.
+  
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/bky}
+  \caption{Contenido de un fichero .bky.}
+  \label{figura:bky}
+\end{figure}
+  
+  \item \textbf{scm}: de manera similar al fichero .bky, aquí encontramos, con estructura JSON, los componentes y sus propiedades. Para extraer los componentes, el algoritmo busca todos los elementos con clave \emph{\$Name} y almacena su valor, excepto del primer elemento ya que no es un componente en sí, sino que representa los ajustes (``Settings") de la aplicación. La Figura~\ref{figura:scm} es un ejemplo de este tipo de fichero. El primer componente en el ejemplo se encuentra en la línea 5: HorizontalArrangement1.  
+  
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/scmcut}
+  \caption{Contenido de un fichero .scm.}
+  \label{figura:scm}
+\end{figure}
+\end{itemize}
+
+\newpage
+\subsection{Puntuación del proyecto}
+\label{sec:score}
+Teniendo extraídos todos los bloques y componentes, comienza la fase de clasificación. Para clasificar (y, posteriormente, puntuar) nos basamos en la rúbrica de Code Master\footnote{\url{http://apps.computacaonaescola.ufsc.br:8080/rubrica_appinventor.jsp}}, una herramienta que analiza proyectos Snap! y App Inventor. Los criterios para obtener la puntuación son los siguientes: 
+
+\textbf{Screens}: hay que tener en cuenta tres cosas: el número de pantallas, si las pantallas contienen componentes visuales o no y si las pantallas cambian de estado programáticamente. Para obtener el número de pantallas, contamos el número de ficheros .bky (también se podrían contar los .scm y obtendríamos el mismo resultado). Si queremos ver si una pantalla contiene componentes visuales, tenemos que comprobar si alguno de sus componentes están en la lista de visuales. Por último, si la pantalla contiene cualquier bloque se puede decir que, potencialmente, cambiará de estado.
+
+\textbf{User Interface}: la puntuación de este criterio depende del número de componentes visuales en la aplicación y también de las disposiciones (arrangements). Contamos los componentes visuales comparándolos con la lista mencionada en el punto anterior. Las disposiciones son un componente más en la aplicación, pueden llamarse: HorizontalArrangement, Horizontal-ScrollArrangement, VerticalArrangement, VerticalScrollArrangement y TableArrangement. Por lo que para contarlas con el algoritmo, buscamos cualquier componente cuyo tipo contenga Arrangement en su nombre.
+
+\textbf{Naming}: este criterio evalúa si el nombre de una variable, componente o procedimiento se ha cambiado o, por el contrario, se ha dejado el nombre por defecto. En el caso de las variables y los procedimientos, los nombres serían: name/procedure, name2/procedure2, \dots Mientras que el nombre por defecto de los componentes depende del tipo, por ejemplo, si el tipo es Ball: Ball1, Ball2, etc. La puntuación dependerá del porcentaje total de nombres por defecto.
+
+\textbf{Events}: la puntuación de los eventos depende del número de manejadores que se empleen. Para contabilizarlos con el algoritmo, hay que localizar todos los bloques del tipo component\_event.
+
+\textbf{Procedural Abstraction}: en este criterio se comprueba el uso de procedimientos (procedures). Hay dos maneras de crear procedimientos: procedures\_defreturn y procedures\_defnoreturn. La máxima puntuación se da cuando hay más llamadas a procedimientos que procedimientos. Esto lo comprobamos comparando el número de bloques mencionados anteriormente con los bloques de llamada: procedures\_callreturn y procedures\_callnoreturn.
+
+\textbf{Loops}: para puntuar el uso de bucles hay que localizar los bloques: controls\_while, controls\_forRange, controls\_forEach. Si solamente se utilizan while, tendrá puntuación 1. Si se utilizan forRange (con o sin bloques while), la puntuación será 2. Por último, si se encuentran forEach, obtendrá puntuación 3.
+
+\textbf{Conditional}: a diferencia de la rúbrica de Code Master, los condicionales se evalúan comprobando el uso de if-then, if-then-else y de if-then-elseif. Para ello se buscan los bloques de tipo controls\_if y controls\_choose, este último contabiliza como if-then-else. Para los controls\_if, hay que tener en cuenta la etiqueta hija ``mutation'' donde podemos encontrar los atributos else o elseif. Si no encontramos ninguno de estos, contabiliza como un if-then. La puntuación es una suma: uso de if-then, uso de if-then-else y uso de if-then-elseif, donde cada uno suma uno.
+
+\textbf{Math and Logic Operations}: el algoritmo tiene que hallar los bloques que contengan math o logic en su tipo. La puntuación depende de cuántos bloques de estos tipos se utilicen.
+
+\textbf{Lists}: para la evaluación de este criterio se comprueba el número de listas creadas (bloque lists\_create\_with). Para conseguir la puntuación máxima, es necesario una lista de tuplas, lo que en App Inventor se traduce como una lista de listas o también el uso de lists\_lookup\_in\_pairs.
+
+\textbf{Data Persistance}: la persistencia de datos se puntúa en función de dónde se guardan los datos. Si es en variables o componentes de la interfaz gráfica, no puntúa. Si se almacenan File o FusionTables, puntúan 1. Si los datos se guardan en TinyDB, 2. Por último, si se utilizan TinyWebDB o FirebaseDB se obtendrá una puntuación de 3. Todas estas formas de almacenamiento se localizan en el .scm como componentes.
+
+\textbf{Sensors}: los sensores pueden ser: acelerómetro, lector de código de barras, reloj, giroscopio, sensor de localización, NFC, sensor de orientación, podómetro y sensor de proximidad. La puntuación depende del número de tipos de sensores diferentes que utilice la aplicación, siendo 0 no utilizar ningún sensor y 3 utilizar más de dos tipos.
+
+\textbf{Media}: los componentes multimedia son los siguientes: grabación de vídeo, cámara, selector de imagen, reproductor de audio, grabadora, reconocimiento de voz, texto a voz, reproductor de vídeo y traductor Yandex. La puntuación es análoga a la puntuación los sensores.
+
+\textbf{Social}: los componentes sociales son: selector de contacto, selector de e-mail, llamada, selector de número de teléfono, compartir, enviar mensaje, compartir vía Twitter. La puntuación es análoga a los dos puntos anteriores.
+
+\textbf{Connectivity}: en este criterio se evalúa el uso de los componentes de conectividad. Si no se utiliza ninguno, la puntuación es 0. Si se utiliza el componente activity starter puntúa 1. Usar componentes bluetooth (tanto cliente como servidor) puntúa 2. Para obtener una puntuación de 3, se ha de usar el componente web.
+
+\textbf{Drawing and Animation}: para evaluar los componentes de dibujo y animación se tiene en cuenta el uso de estos componentes: canvas (1 punto), bola (2 puntos) e imagen interactiva (3 puntos).
+
+En la aplicación web, el usuario selecciona el proyecto que desea evaluar y lo sube. La aplicación realiza el análisis de los bloques y componentes siguiendo estos criterios y cuando se tienen todos puntuados, se muestra la página de resultados, similar a la de Dr. Scratch. La Figura~\ref{figura:dr-ai-score} muestra la evaluación de un proyecto con nivel alto.
+
+\section{Dr. App Inventor para múltiples proyectos}
+
+Ya tenemos el algoritmo que extrae los bloques, los clasifica y devuelve una evaluación de un proyecto, ahora queremos que el algoritmo extraiga los bloques y realice la evaluación varios proyectos a la vez para posteriormente analizar los datos obtenidos.
+
+\subsection{Recopilación de proyectos}
+
+Para obtener los proyectos hay que acceder a la galería de App Inventor (puede verse en la Figura~\ref{figura:gallery}) y seleccionar los proyectos deseados. En nuestro caso, tenemos 62 proyectos de la sección ``Popular'' y 1160 de la sección ``Recent'', por orden de aparición. En la sección~\ref{sec:problems} se darán más detalles del proceso de obtención.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/gallery}
+  \caption{Galería de App Inventor.}
+  \label{figura:gallery}
+\end{figure}
+\newpage
+\subsection{Adaptación del algoritmo}
+
+El nuevo algoritmo analiza cada uno de los proyectos obtenidos, situados en un mismo directorio, de la misma manera que antes, pero ahora se guardan las puntuaciones de los criterios y la puntuación total en forma de CSV (Figura~\ref{figura:csv-ct}).
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/csv-ct}
+  \caption{CSV con las puntuaciones (results.csv).}
+  \label{figura:csv-ct}
+\end{figure}
+
+Además, se crea un nuevo diccionario que tiene como clave los tipos de bloques que se emplean en el proyecto y el número de apariciones en los .bky como valor. Este diccionario se adapta para almacenarlo como otro CSV (Figura~\ref{figura:csv-blocks}) para el posterior análisis de ambos ficheros.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/csv-blocks}
+  \caption{CSV con los bloques (blocks.csv).}
+  \label{figura:csv-blocks}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -463,10 +580,160 @@ Una vez conocido el funcionamiento de Dr. Scratch y de App Inventor (sección~\re
 \cleardoublepage
 \chapter{Resultados}
 
-En este capítulo se incluyen los resultados de tu trabajo fin de grado.
+Con los ficheros generados en la última sección, ya tenemos los datos que vamos a tratar y analizar, para comprobar el estado actual de los proyectos desarrollados por la comunidad App Inventor. 
 
-Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
+\section{Número de bloques}
 
+En primer lugar, guardamos en una variable tipo DataFrame los datos de blocks.csv y utilizamos la función \emph{describe()} para obtener estadísticas descriptivas del número de bloques total en los proyectos como la media, el mínimo, el máximo o la mediana. Seguidamente se eliminan los proyectos vacíos, es decir, proyectos cuyo número de bloques es igual a cero y se vuelve a llamar a la función \emph{describe()}. Por último, se realiza el mismo proceso con los proyectos duplicados. Para eliminar los proyectos duplicados, pandas proporciona \emph{drop\_duplicates()}.
+
+En la Tabla~\ref{tabla:proj-blocks} podemos visualizar las estadísticas de los tres estados comentados. Originalmente había 1.222 proyectos, tras la eliminación de proyectos vacíos hay 1.102 y al descontar los duplicados obtenemos la cifra final de 730 proyectos. Podemos ver que la media de bloques aumenta cuando descartamos proyectos no válidos. Lo mismo ocurre con las demás estadísticas, excepto el máximo que siempre es 5.476.
+
+\begin{table}[!h]
+ \begin{center}
+ \begin{tabular}{ | l | r | r | r |} 
+\hline
+& Original & Sin vacíos & Sin duplicados \\ \hline
+Proyectos & 1.222 & 1.102 & 730\\ \hline
+Media & 187,89 & 208,35 & 211,48\\ \hline
+Desviación típica & 463,68 & 483.9 & 502,62 \\ \hline
+Mediana & 47 & 55 & 60\\ \hline
+Mínimo & 0 & 1 & 1\\ \hline
+Máximo & 5.476 & 5.476 & 5.476 \\ \hline
+ \end{tabular}
+ \caption{Estadísticas del número de bloques.}
+ \label{tabla:proj-blocks}
+ \end{center}
+\end{table}
+
+\section{Variedad en los proyectos}
+
+Llamamos variedad al número de bloques de diferente tipo empleados en un proyecto. En el análisis, la variedad se cuenta como el número de columnas (que representan los tipos de bloques) con valor distinto de cero, para todas las filas (que representan los proyectos). La Figura~\ref{figura:variety} representa la distribución de la variedad en todos los proyectos, donde el eje X es la variedad y el eje Y, la frecuencia, o las veces que se da una variedad. Observamos que los valores predominantes de la variedad están entre 3 y 6, mientras que según aumenta de valor, disminuye la frecuencia de proyectos. La máxima variedad es 61 y solamente un proyecto la tiene.  
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/variety}
+  \caption{Distribución de la variedad.}
+  \label{figura:variety}
+\end{figure}
+
+\section{Uso de bloques}
+
+En esta sección se estudia el uso de los distintos bloques en los proyectos, de este modo podremos conocer si existe alguno infrautilizado.
+
+\subsection{Familias de bloques}
+
+Inicialmente se analizan las familias, entendiendo por familias los 8 tipos de bloques mencionados en la sección~\ref{sec:ai} sumando una nueva familia formada por los bloques específicos de los componentes, que llamaremos Componentes. En la Tabla~\ref{tabla:fam-blocks} se pueden ver en orden de uso. En primer lugar con diferencia, encontramos Componentes que, al abarcar diferentes elementos (cada uno con sus bloques de métodos y eventos) es normal que predomine. Mientras que en último lugar encontramos la familia Colores, no es de extrañar ya que en comparación con Componentes su aplicación es mucho más reducida. Por otro lado, desde el punto de vista del pensamiento computacional, hay dos familias muy ligadas que no destacan: Control, relacionada con el pensamiento algorítmico y Procedimientos, relacionada con la abstracción. Estas familias ocupan el sexto y octavo lugar respectivamente, cuando deberían ser de las principales. Este es uno de los posibles aspectos a resaltar durante el aprendizaje de los usuarios.
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{| l | r |}
+\hline
+\textbf{Familia} & \textbf{Frecuencia} \\ \hline
+Componentes & 49.507 \\ \hline
+Texto & 25.426\\ \hline
+Matemáticas & 24.862\\ \hline
+Variables & 21.765\\ \hline
+Lógica & 12.792\\ \hline
+Control & 8.915\\ \hline
+Listas & 4.381\\ \hline
+Procedimientos & 4.282\\ \hline
+Colores & 2.452\\ \hline
+Total & 154.382\\ \hline
+ \end{tabular}
+ \caption{Familias ordenadas por uso.}
+ \label{tabla:fam-blocks}
+ \end{center}
+\end{table}
+
+\subsection{Tipos de bloques}
+
+Nos referimos con tipos de bloques a cada uno de los diferentes bloques que se pueden utilizar en App Inventor. Para esta sección, se realiza un sumatorio de los bloques utilizados en todos los proyectos, separados por tipo. En la Tabla~\ref{tabla:type-blocks} se muestran las estadísticas descriptivas del número de bloques que conforman los tipos. Vemos que hay 107 tipos diferentes en total con una media de aproximadamente 1.443 bloques. La desviación típica es mucho mayor que la media, lo que significa que existen valores extremos, es decir, hay grandes diferencias entre valores. Otra prueba de ello es la mediana, 133, que nos indica que, por lo menos, el 50\% de los proyectos tienen 133 bloques o menos, quedando muy lejos de la media. Esto nos indica que habrá una minoría de proyectos con valores muy elevados que alzarán la media, como puede se puede ver en el máximo: 28.927 bloques. 
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{| l | r |}
+\hline
+Tipos & 107\\ \hline
+Media & 1.442,82\\ \hline
+Desviación típica & 4.232,51\\ \hline
+Mediana & 133\\ \hline
+Mínimo & 1\\ \hline
+Máximo & 28.927\\ \hline
+Total & 154.382\\ \hline
+ \end{tabular}
+ \caption{Estadísticas de los tipos de bloques.}
+ \label{tabla:type-blocks}
+ \end{center}
+\end{table}
+
+A continuación se analizan los bloques más y menos utilizados. Además de realizar este estudio para todos los proyectos, se estudia también el uso en proyectos con baja variedad. Decimos que un proyecto tiene baja variedad cuando contiene como máximo 10 bloques diferentes. Se elige esta cifra ya que, de este modo los proyectos con baja variedad y los de alta variedad se distribuirán al 50\%, como se puede ver en la Tabla~\ref{tabla:variety-comp}. 
+
+Los resultados en la Tabla~\ref{tabla:use-blocks} muestran, fijándonos primero en todos los proyectos, que los dos bloques más utilizados son \emph{component\_set\_get}, cuya función es introducir u obtener las propiedades de un componente, y \emph{text} que se utiliza para crear strings. A continuación, está \emph{math\_number}, utilizado para representar números. En cuarto lugar, \emph{lexical\_variable\_get}, proporciona el valor de cualquier variable. Por último, \emph{component\_event} toma el valor de cualquier evento que pertenezca a un componente. Estos bloques representan un alto porcentaje de sus correspondientes familias: Componentes: 77,82\%; Texto: 89,06\%; Matemáticas: 61,57\%; Variables: 67,37\%. Mientras tanto, los bloques menos utilizados son aquellos con una función menos práctica desde el punto de vista de una aplicación móvil. Por ejemplo, \emph{math\_tan} que calcula la tangente dado un valor o \emph{text\_is\_string} que comprueba si una variable es un string.
+
+Por otro lado, vemos que tres de los cinco primeros bloques en todos los proyectos aparecen también como los más utilizados en los proyectos con baja variedad. Los dos primeros coinciden, mientras que \emph{component\_event} ahora aparece el tercero. Los nuevos bloques son \emph{component\_method} con el que se llama a los métodos que pueda utilizar un componente, y \emph{controls\_openAnotherScreen} que abre una nueva pantalla con el nombre que se pase como argumento. Dentro de los bloques menos utilizados, descubrimos 42 que no se utilizan ni una sola vez. Se han seleccionado los cinco que aparecen en la tabla porque confirman la necesidad de insistir en las familias Control y Procedimientos a la hora de instruir. Estos bloques ya se habían mencionado en la sección~\ref{sec:score} como factores indispensables para puntuar en, al menos, tres criterios.
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{| l | r | l | r |}
+\hline
+\multicolumn{2}{| c |}{\textbf{Todos los proyectos}}  & \multicolumn{2}{| c |}{\textbf{Proyectos baja variedad}} \\ \hline
+component\_set\_get & 28.927 & component\_set\_get & 5.562 \\ \hline
+text & 22.644 & text & 4.538 \\ \hline
+math\_number & 15.308 & component\_event & 3.960 \\ \hline
+lexical\_variable\_get & 14.662 & component\_method & 3.484 \\ \hline
+component\_event & 9.599 & controls\_openAnotherScreen & 1.277 \\ \hline
+... & ... & ... & ... \\ \hline
+list\_to\_csv\_table & 3 & controls\_forEach & 0 \\ \hline
+math\_tan & 2 & controls\_while & 0 \\ \hline
+obfuscated\_text & 2 & controls\_choose & 0\\ \hline
+text\_is\_string & 2 & procedures\_callreturn & 0\\ \hline
+controls\_closeScreenWithPlainText & 1 & procedures\_defreturn & 0\\ \hline
+ \end{tabular}
+ \caption{Bloques más y menos utilizados.}
+ \label{tabla:use-blocks}
+ \end{center}
+\end{table}
+
+\section{Relación Puntuación/Variedad}
+
+En esta sección pretendemos comprobar si es cierto lo que sugiere la intuición: a mayor variedad, mayor puntuación. La Tabla~\ref{tabla:var-score} muestra una comparación estadística de las puntuaciones de los proyectos con alta variedad frente a los proyectos con baja variedad. Los proyectos con más de 10 bloques diferentes representan el 48,2\% de los proyectos (352 de 730). A diferencia de las estadísticas anteriores, la media y la mediana apenas se diferencian, lo que significa que no habrá grandes saltos entre valores. Observando los datos obtenidos, las medias son 18,56 y 9,89, y los máximos, 36 y 19, respectivamente. Por lo tanto, se confirma la hipótesis inicial, ya que la variedad alta prácticamente duplica todos los valores de la baja.
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{| l | r | r |}
+\hline
+& Alta variedad & Baja variedad \\ \hline
+Proyectos & 352 & 378\\ \hline
+Porcentaje & 48,2 & 51,8\\ \hline
+Media & 18,56 & 9,89\\ \hline
+Desviación típica & 5.33 & 3.27\\ \hline
+Mediana & 18 & 10\\ \hline
+Mínimo & 7 & 3\\ \hline
+Máximo & 36 & 19\\ \hline
+ \end{tabular}
+ \caption{Puntuaciones con alta y baja variedad.}
+ \label{tabla:var-score}
+ \end{center}
+\end{table}
+
+\section{Variedad frente a cantidad}
+
+Conociendo los resultados de la sección anterior, nos hacemos una idea de que es más importante un proyecto con alta variedad antes que un proyecto con muchos bloques de los mismos tipos. Para comprobar esto, se compara el proyecto que posee mayor número de bloques con el proyecto de mayor variedad. En la Tabla~\ref{tabla:var-quan} podemos ver que se cumple. El primer proyecto contiene 5.476 bloques pero solo 16 son diferentes, en consecuencia obtiene una puntuación de 18. Sin embargo, el proyecto con 4.115 bloques contiene 61 tipos distintos y su puntuación es mucho mayor, 36. 
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{| r | r | r |}
+\hline
+Cantidad & Variedad & Puntuación \\ \hline
+5.476 & 16 & 18\\ \hline
+4.115 & 61 & 36\\ \hline
+ \end{tabular}
+ \caption{Comparación variedad frente cantidad.}
+ \label{tabla:var-quan}
+ \end{center}
+\end{table}
+
+Con estos resultados podemos concluir que la variedad es otro parámetro a tener en cuenta a la hora de buscar mejoras en los usuarios. Un mayor énfasis en la variedad puede llegar a multiplicar la puntuación por dos. Esto se debe principalmente a que los criterios de evaluación se basan, en su mayoría, en la aparición de diferentes bloques.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -495,7 +762,7 @@ Para realizar este trabajo, me han resultado indispensables todas las asignatura
 \begin{enumerate}
   \item Informática I, con el lenguaje ``Picky", donde aprendí los fundamentos básicos de la programación y que los problemas se resuelven ``paso a paso".
   \item Informática II, con el lenguaje ADA. Mi primer contacto con la programación contrarreloj, me enseñó que no siempre voy a estar en un entorno cómodo y aún así voy a tener que desenvolverme.
-  \item Protocolos para la Transmisión de Audio y Vídeo en Internet: aquí conocí Python, lenguaje que he necesitado para crear la aplicación web con Django y para el análisis de datos con Pandas.
+  \item Protocolos para la Transmisión de Audio y Vídeo en Internet: aquí conocí Python, lenguaje que he necesitado para crear la aplicación web con Django y para el análisis de datos con pandas.
   \item Construcción de Servicios y Aplicaciones Audiovisuales en Internet, Gráficos y Visualización 3D y Laboratorio de Tecnologías Audiovisuales en la Web: estas asignaturas se complementaban entre sí, me enseñaron todo lo que sé de tecnologías web: JavaScript, HTML, CSS...
 \end{enumerate}
 
@@ -508,7 +775,7 @@ En esta sección se explican los conocimientos que fueron necesarios adquirir par
 
 \begin{enumerate}
   \item La herramienta Django de Python: para la implementación de la aplicación web. Además, me sirvió para adelantar trabajo ya que, en la asignatura Laboratorio de Tecnologías Audiovisuales en la Web del segundo cuatrimestre de este curso, fue parte del temario.
-  \item La librería Pandas también de Python, me permitió tomar contacto con el análisis de datos y de la cual todavía me queda mucho por descubrir.
+  \item La librería pandas también de Python, me permitió tomar contacto con el análisis de datos y de la cual todavía me queda mucho por descubrir.
 \end{enumerate}
 
 
@@ -518,8 +785,8 @@ En esta sección se explican los conocimientos que fueron necesarios adquirir par
 En esta sección se proponen sugerencias o ideas para futuros trabajos con intención de mejorar las habilidades del pensamiento computacional:
 
 \begin{itemize}
-  \item Siguiendo las posibles mejoras propuestas en~\cite{robles2018ontools}, un posible trabajo futuro es mostrar a los aprendices ejemplos y proponer ejercicios para que practiquen. Los ejemplos y ejercicios propuestos deben incluir bloques de Control y/o Procedimiento, una variedad alta o la combinación de ambos. Otro posible paso sería proporcionar retroalimentación personalizada a cada usuario basada en sus progresos y necesidades. Para llevar esto a cabo, podría extrapolarse el análisis realizado en este trabajo a los proyectos de cada usuario en concreto.
-  \item Otra medida que se propone en~\cite{robles2018ontools} es integrar las herramientas de análisis en sus entornos de desarrollo correspondientes, a raíz de esto puede surgir una medida aunque más extrema: diseñar un nuevo entorno orientado al desarrollo del pensamiento computacional.
+  \item Siguiendo las posibles mejoras propuestas en~\cite{robles2018ontools}, un posible trabajo futuro es mostrar a los aprendices ejemplos y proponer ejercicios para que practiquen. Los ejemplos y ejercicios propuestos deben incluir bloques de Control y/o Procedimientos, una variedad alta o la combinación de ambos. Otro posible paso sería proporcionar retroalimentación personalizada a cada usuario basada en sus progresos y necesidades. Para llevar esto a cabo, podría extrapolarse el análisis realizado en este trabajo a los proyectos de cada usuario en concreto.
+  \item Otra medida que se propone en~\cite{robles2018ontools} es integrar las herramientas de análisis en sus entornos de desarrollo correspondientes, a raíz de esto puede surgir una medida aunque más extrema: diseñar un nuevo entorno orientado especialmente al desarrollo del pensamiento computacional.
 \end{itemize} 
 
 
@@ -533,6 +800,12 @@ En esta sección se proponen sugerencias o ideas para futuros trabajos con intenc
 \chapter{Manual de usuario}
 \label{app:manual}
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/dr-ai-score}
+  \caption{Página de resultados en Dr. App Inventor.}
+  \label{figura:dr-ai-score}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
