@@ -293,16 +293,16 @@ En esta sección se detalla la estructura de la memoria, la cual está dividida en
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
  
-El objetivo principal de este proyecto es buscar caminos de aprendizaje que permitan a los alumnos (o cualquier persona interesada en aprender) mejorar sus habilidades de pensamiento computacional utilizando App Inventor. Para ello, vamos a analizar los proyectos de la comunidad App Inventor, con el que obtendremos una visión general de los proyectos que se están desarrollando.
+El objetivo principal de este proyecto es crear una herramienta que evalúe el desarrollo de Pensamiento Computacional de proyectos de MIT App Inventor. De esta manera se pueden buscar caminos de aprendizaje que permitan a los alumnos (o cualquier persona interesada en aprender) mejorar sus habilidades de pensamiento computacional utilizando App Inventor. Para ello, vamos a analizar los proyectos de la comunidad App Inventor, con el que obtendremos una visión general de los proyectos que se están desarrollando.
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
 
-En el proceso de alcanzar el objetivo general ha sido necesario realizar antes unas tareas u objetivos específicos que se exponen a continuación:
+En el proceso de alcanzar el objetivo general, ha sido necesario realizar antes unas tareas u objetivos específicos que se exponen a continuación:
 \begin{enumerate}[1.]
 \item Conocer la estructura de App Inventor: uso y funcionamiento, los tipos de bloques y componentes que pueden emplearse en los proyectos y los ficheros que forman un proyecto.
 	
-\item Desarrollar Dr. App Inventor: una aplicación web sobre Django, analogía de Dr. Scratch\footnote{\url{http://drscratch.org/}} para evaluar proyectos App Inventor. El desarrollo de Dr. App Inventor se explicará con detalle en el capítulo~\ref{chap:design}.
+\item Estudiar la aplicación de Dr. Scratch\footnote{\url{http://drscratch.org/}}, que evalúa proyectos Scratch, para crear una adaptación que permita evaluar proyectos App Inventor. El desarrollo de Dr. App Inventor se explicará con detalle en el capítulo~\ref{chap:design}.
 
 \item Adaptar el algoritmo de Dr. App Inventor para extraer bloques y evaluar varios proyectos, guardando esta información en ficheros CSV.
 
@@ -318,7 +318,7 @@ En el proceso de alcanzar el objetivo general ha sido necesario realizar antes u
 
 A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
 Hay gente que añade un diagrama de GANTT.
-Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
+Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana). FIXME.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -336,9 +336,9 @@ En este apartado se describen las diferentes tecnologías que se han utilizado pa
 
 App Inventor~\cite{wolber2011app} es un entorno de programación visual que permite crear aplicaciones móviles para Android. Surge para ayudar a las personas a pasar del consumo de tecnología a la creación. El ``código" que utiliza son bloques que los usuarios pueden arrastrar y soltar, para unirlos entre sí como si fuera un puzzle.
 
-Este entorno utiliza dos modos para la creación de una aplicación: \emph{Blocks} y \emph{Designer}. En las figuras~\ref{figura:ai-blocks} y~\ref{figura:ai-designer} \footnote{Fuente: \url{http://explore.appinventor.mit.edu/designer-blocks}}, se muestran las pantallas de ambos modos con los diferentes elementos que los conforman.
+Este entorno utiliza dos modos para la creación de una aplicación: \emph{Blocks} y \emph{Designer}. En las figuras~\ref{figura:ai-blocks} y~\ref{figura:ai-designer}\footnote{Fuente: \url{http://explore.appinventor.mit.edu/designer-blocks}}, se muestran las pantallas de ambos modos con los diferentes elementos que los conforman.
 
-\textbf{Blocks}: en este modo se define el comportamiento de la aplicación, es decir, se implementa el algoritmo. Hay 8 tipos diferentes de bloques: Control, Logic, Math, Text, Lists, Colors, Variables y Procedures. Además, se pueden ver bloques específicos de componentes. Estos componentes deben haberse seleccionado previamente en el modo Designer.
+\textbf{Blocks}: en este modo se define el comportamiento de la aplicación, es decir, se implementa el algoritmo. Hay 8 tipos diferentes de bloques: Control, Logic, Math, Text, Lists, Colors, Variables y Procedures. Además, se pueden ver bloques específicos de componentes. Estos componentes deben haberse seleccionado previamente en el modo Designer. El aspecto visual del modo ``blocks'' se puede encontrar en la figura~\ref{figura:ai-blocks}.
 
   \begin{figure}
     \centering
@@ -347,7 +347,7 @@ Este entorno utiliza dos modos para la creación de una aplicación: \emph{Blocks}
     \label{figura:ai-blocks}
  \end{figure}
  
-\textbf{Designer}: en este modo se seleccionan los componentes que van a constituir la aplicación. Estos componentes pueden ser visuales (los que formarán la interfaz de usuario) o no visuales (diversas funcionalidades del dispositivo como el acelerómetro o el bluetooth, bases de datos o comandos que permiten controlar robots LEGO® MINDSTORMS® NXT).
+\textbf{Designer}: en este modo se seleccionan los componentes que van a constituir la aplicación. Estos componentes pueden ser visuales (los que formarán la interfaz de usuario) o no visuales (diversas funcionalidades del dispositivo como el acelerómetro o el bluetooth, bases de datos o comandos que permiten controlar robots LEGO® MINDSTORMS® NXT). Se puede ver un ejemplo del modo ``designer'' en la Figura~\ref{figura:ai-designer}.
  
   \begin{figure}
     \centering
@@ -391,11 +391,15 @@ Django\footnote{\url{https://www.djangoproject.com/}} es un framework para aplic
  \end{center}
 \end{table}
 
-Otras ventajas que presenta Django son el ORM y el lenguaje de plantillas.
+Otras ventajas que presenta Django son el ORM y el lenguaje de plantillas:
 
-ORM (Object-Relational Mapping): realiza un mapeo de diferentes bases de datos, de modo que el usuario no necesita conocer los comandos de SQLite o MySQL, ya que puede manejar las bases de datos empleando código de Python.
+\begin{itemize}
+  \item ORM (Object-Relational Mapping): realiza un mapeo de diferentes bases de datos, de modo que el usuario no necesita conocer los comandos de SQLite o MySQL, ya que puede manejar las bases de datos empleando código de Python.
 
-Lenguaje de plantillas: permite introducir variables y lógica simple en un HTML del siguiente modo: \{\{ variable \}\}, \{\% código \%\}. Para el uso de variables, en el render se pasa como argumento el contexto: un diccionario clave-valor, donde la clave es el nombre que va a tomar la variable dentro de la plantilla y el valor es la variable en sí.
+  \item Lenguaje de plantillas: permite introducir variables y lógica simple en un HTML del siguiente modo: \{\{ variable \}\}, \{\% código \%\}. Para el uso de variables, en el render se pasa como argumento el contexto: un diccionario clave-valor, donde la clave es el nombre que va a tomar la variable dentro de la plantilla y el valor es la variable en sí.
+\end{itemize}
+
+FIXME: explicar en el texto principal de qué va la figura~\ref{figura:mvc}
 
 \begin{figure}[htbp]
   \centering
@@ -404,7 +408,13 @@ Lenguaje de plantillas: permite introducir variables y lógica simple en un HTML 
   \label{figura:mvc}
 \end{figure}
 
-\newpage{}
+
+\section{Dr. Scratch} 
+\label{sec:drscratch}
+
+FIXME: hablar de Dr. Scratch
+
+
 \section{pandas}
 
 Es un paquete de Python\footnote{\url{https://pandas.pydata.org/pandas-docs/stable/release.html}} que permite el manejo de datos de una forma rápida y flexible. Su objetivo es ser el componente fundamental de alto nivel para realizar análisis de datos prácticos y reales en Python.
@@ -413,9 +423,15 @@ Utiliza las estructuras de datos Series (matriz unidimensional capaz de contener
 
 En pandas existe la opción de leer ficheros CSV, entre otros, y convertirlos en DataFrames. Se complementa con otros paquetes como NumPy (computación científica) y matplotlib (representación de gráficos).
 
+FIXME: contar algo más y poner una figura. También estaría bien una referencia.
+
+
 \subsection{Jupyter Notebook}
 
 Para ejecutar pandas se suele utilizar Jupyter Notebook\footnote{\url{http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html}}, una aplicación web donde se puede escribir código por líneas como si fuera un cuaderno. Permite mostrar, editar y ejecutar dicho código de manera que se visualicen cómodamente los resultados.
+
+FIXME: contar algo más y poner una figura. También estaría bien una referencia.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -426,7 +442,7 @@ Para ejecutar pandas se suele utilizar Jupyter Notebook\footnote{\url{http://jup
 \chapter{Diseño e implementación}
 \label{chap:design}
 
-En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto que ya se mencionaron brevemente en la sección \ref{sec:objetivos-especificos}. La Figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos.
+En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto que ya se mencionaron brevemente en la sección \ref{sec:objetivos-especificos}. La Figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos. FIXME: explicar los hitos seguidos.
 
 \begin{figure}[!h]
   \centering
@@ -439,6 +455,8 @@ En este capítulo se explican los pasos necesarios para poder llevar a cabo el pr
 \section{Dr. Scratch para App Inventor}
 \label{prev-dr-ai}
 
+FIXME: esto debería ir al capítulo de estado del arte.
+
 Antes de empezar a implementar la aplicación web Dr. App Inventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario feedback para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
 
 \begin{figure}[!h]
@@ -448,12 +466,15 @@ Antes de empezar a implementar la aplicación web Dr. App Inventor, fue precisa u
   \label{figura:dr-scratch}
 \end{figure}
 
+FIXME: a partir de aquí ya no.
+
 En el caso de Dr. App Inventor, se ha implementado únicamente la evaluación de los proyectos ya que el análisis se centrará en el pensamiento computacional.
 
 \section{Dr. App Inventor como aplicación web}
 \label{sec:dr-ai}
 
 Una vez conocido el funcionamiento de Dr. Scratch y de App Inventor (sección~\ref{sec:ai}), se comienza con el proyecto en Django que dará lugar a la aplicación web.
+
 \subsection{Extracción de bloques y componentes}
 \label{subsec:extract}
 
