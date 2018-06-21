@@ -78,7 +78,7 @@ Trabajo Fin de Grado
 \vspace{2.5cm}
 
 \LARGE
-EVALUACIÓN DE PROYECTOS APP INVENTOR
+EVALUACIÓN DE PROYECTOS APPINVENTOR
 \vspace{4cm}
 
 \large
@@ -105,7 +105,7 @@ Tutor : Dr. Gregorio Robles
 
 \vspace{1cm}
 \large
-Evaluación de Proyectos App Inventor 
+Evaluación de Proyectos AppInventor 
 
 \vspace{1cm}
 \large
@@ -175,17 +175,12 @@ Por último pero no por ello menos importante, quiero dar las gracias a Sofía. Po
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aquí viene un resumen del proyecto. Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
-Han de quedar respondidas las siguientes preguntas:
+Este Trabajo Fin de Grado consiste en una evaluación de proyectos del entorno AppInventor, cuyo código se compone de bloques. Durante el proceso, se analizan los distintos bloques que se emplean en los programas con el fin de obtener una visión general de lo que están desarrollando actualmente los usuarios de AppInventor. 
 
-\begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto
-dentro de un marco general?
-\end{itemize}
+Esta idea surge a partir de las herramientas que evalúan el pensamiento computacional en los proyectos, como Dr. Scratch o Code Master. Dichas herramientas son de utilidad para dar una puntuación pero no proporcionan suficiente feedback para que el usuario mejore. Por ello, el objetivo final es encontrar caminos de mejora de las habilidades del pensamiento computacional.
 
-Lo mejor es escribir el resumen al final.
+Para conseguirlo, se desarrolla la herramienta Dr. AppInventor, una aplicación web basada en Dr. Scratch para el análisis de proyectos AppInventor. La aplicación está escrita en Django, un framework para aplicaciones web de Python. Después, modificando el algoritmo de Dr. AppInventor, se extraen los bloques y las puntuaciones de un conjunto de proyectos, previamente extraídos de la galería, y se procede al análisis de los datos conseguidos.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -194,9 +189,11 @@ Lo mejor es escribir el resumen al final.
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-Here comes a translation of the ``Resumen'' into English. Please, double check it for correct grammar and spelling.
-As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out
-just before submitting.
+This Thesis consists of an assessment of projects in the AppInventor environment, which code is composed of blocks. During the process, the different blocks used in the programs are analyzed in order to get an overview of what AppInventor users are currently developing.
+
+This idea arises from tools that evaluate computational thinking in projects, such as Dr. Scratch or Code Master. These tools are useful for giving a score but do not provide enough feedback for the user to improve. Therefore, the goal is to find ways to improve computational thinking skills.
+
+To achieve this, we developed the Dr. AppInventor tool, a Dr. Scratch-based web application for the analysis of AppInventor projects. The application is written in Django, a Python web applications framework. Then, modifying the Dr. AppInventor algorithm, the blocks and scores of a set of projects, previously extracted from the gallery, are extracted and the data obtained are analyzed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -227,10 +224,10 @@ just before submitting.
 
 \cleardoublepage
 \chapter{Introducción}
-\label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
+\label{chap:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-Este Trabajo Fin de Grado tiene como objetivo el desarrollo de una herramienta que facilite el análisis de proyectos creados con MIT App Inventor\footnote{\url{http://ai2.appinventor.mit.edu/}}. La herramienta, llamada Dr. App Inventor, extrae y clasifica los bloques de cada proyecto y devuelve una puntuación en función de unos criterios que evalúan el desarrollo de Pensamiento Computacional, término sobre el que se cimienta este trabajo.
+Este Trabajo Fin de Grado tiene como objetivo el desarrollo de una herramienta que facilite el análisis de proyectos creados con MIT AppInventor\footnote{\url{http://ai2.appinventor.mit.edu/}}. La herramienta, llamada Dr. AppInventor, extrae y clasifica los bloques de cada proyecto y devuelve una puntuación en función de unos criterios que evalúan el desarrollo de Pensamiento Computacional, término sobre el que se cimienta este trabajo.
 
 \section{Contexto}
 \label{sec:context}
@@ -266,17 +263,17 @@ Desde un punto de vista personal, hay tres elementos clave que han hecho que me 
 En esta sección se detalla la estructura de la memoria, la cual está dividida en 6 capítulos. Cada uno de estos capítulos se explica a continuación:
 
 \begin{itemize}
-  \item El capítulo 1 es una Introducción al proyecto, donde se da a conocer el contexto en el que se enmarca, se explica la motivación por la cual se ha llevado a cabo y se muestra la estructura que sigue.
+  \item El capítulo~\ref{chap:intro} es una Introducción al proyecto, donde se da a conocer el contexto en el que se enmarca, se explica la motivación por la cual se ha llevado a cabo y se muestra la estructura que sigue.
   
   \item En el capítulo~\ref{chap:objetivos} se muestra el objetivo principal del proyecto, junto con los subobjetivos necesarios para cumplirlo. Cada subobjetivo muestra el periodo de tiempo durante el que se realizó.
   
-  \item Estado del arte: en este capítulo se exponen con una breve explicación las tecnologías existentes que se han utilizado para la realización del trabajo. FIXME: poner referencia
+  \item Estado del arte: en este capítulo se exponen con una breve explicación las tecnologías existentes que se han utilizado para la realización del trabajo. Estas tecnologías son: AppInventor, Dr. Scratch, Python, Django y pandas.
   
-  \item Diseño e implementación: FIXME: terminar y poner referencia
+  \item Diseño e implementación: este capítulo explica detalladamente la creación de la herramienta Dr. AppInventor y la preparación del algoritmo para extraer los datos de los proyectos.
   
-  \item Resultados:  FIXME: terminar y poner referencia
+  \item El capítulo~\ref{chap:results} muestra los resultados obtenidos tras analizar los datos extraídos en el capítulo anterior. Proporciona información sobre el número de bloques, la variedad, los tipos de bloques más y menos utilizados
   
-  \item Conclusiones:   FIXME: terminar y poner referencia
+  \item Conclusiones: aquí se detalla la consecución de los objetivos y los problemas que se han presentado durante la realización del trabajo. También se habla de los conocimientos previos aplicados, de los conocimientos que se han adquirido y de los posibles trabajos futuros.
 \end{itemize}
 
 
@@ -293,33 +290,29 @@ En esta sección se detalla la estructura de la memoria, la cual está dividida en
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
  
-El objetivo principal de este proyecto es crear una herramienta que evalúe el desarrollo de Pensamiento Computacional de proyectos de MIT App Inventor. De esta manera se pueden buscar caminos de aprendizaje que permitan a los alumnos (o cualquier persona interesada en aprender) mejorar sus habilidades de pensamiento computacional utilizando App Inventor. Para ello, vamos a analizar los proyectos de la comunidad App Inventor, con el que obtendremos una visión general de los proyectos que se están desarrollando.
+El objetivo principal de este proyecto es crear una herramienta que evalúe el desarrollo de Pensamiento Computacional de proyectos de MIT AppInventor. De esta manera se pueden buscar caminos de aprendizaje que permitan a los alumnos (o cualquier persona interesada en aprender) mejorar sus habilidades de pensamiento computacional utilizando AppInventor. Para ello, vamos a analizar los proyectos de la comunidad AppInventor, con el que obtendremos una visión general de los proyectos que se están desarrollando.
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
 
-En el proceso de alcanzar el objetivo general, ha sido necesario realizar antes unas tareas u objetivos específicos que se exponen a continuación:
+En el proceso de alcanzar el objetivo general, ha sido necesario realizar antes unas tareas u objetivos específicos que se exponen a continuación, junto con el periodo de tiempo en el que se llevaron a cabo:
+
 \begin{enumerate}[1.]
-\item Conocer la estructura de App Inventor: uso y funcionamiento, los tipos de bloques y componentes que pueden emplearse en los proyectos y los ficheros que forman un proyecto.
+
+\item Finales de septiembre de 2017 - Octubre de 2017. Documentación sobre el contexto en el que se desarrolla el trabajo: pensamiento computacional, lenguajes de programación visual basados en bloques y herramientas de análisis de programas en dichos lenguajes.
+
+\item Octubre de 2017 - Noviembre de 2017. Conocer la estructura de AppInventor: uso y funcionamiento, los tipos de bloques y componentes que pueden emplearse en los proyectos y los ficheros que forman un proyecto.
 	
-\item Estudiar la aplicación de Dr. Scratch\footnote{\url{http://drscratch.org/}}, que evalúa proyectos Scratch, para crear una adaptación que permita evaluar proyectos App Inventor. El desarrollo de Dr. App Inventor se explicará con detalle en el capítulo~\ref{chap:design}.
+\item Noviembre de 2017 - Febrero de 2018. Estudiar la aplicación de Dr. Scratch\footnote{\url{http://drscratch.org/}}, que evalúa proyectos Scratch, para crear una adaptación que permita evaluar proyectos AppInventor. El desarrollo de Dr. AppInventor se explicará con detalle en el capítulo~\ref{chap:design}.
 
-\item Adaptar el algoritmo de Dr. App Inventor para extraer bloques y evaluar varios proyectos, guardando esta información en ficheros CSV.
+\item Febrero de 2018. Adaptar el algoritmo de Dr. AppInventor para extraer bloques y evaluar varios proyectos, guardando esta información en ficheros CSV.
 
-\item Obtener de la galería de App Inventor una gran cantidad de proyectos.
+\item Finales de febrero de 2018 - Marzo de 2018. Obtener de la galería de AppInventor una gran cantidad de proyectos.
 
-\item Analizar los CSV obtenidos con Dr. App Inventor utilizando la librería pandas en un Jupyter Notebook.
+\item Marzo de 2018 - Abril de 2018. Analizar los CSV obtenidos con Dr. AppInventor utilizando la librería pandas en un Jupyter Notebook.
 \end{enumerate}
 
-% Podría unir los objetivos específicos con la planificación temporal
-
-\section{Planificación temporal}
-\label{sec:planificacion-temporal}
-
-A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
-Hay gente que añade un diagrama de GANTT.
-Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana). FIXME.
-
+% Unidos los objetivos específicos con la planificación temporal
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -328,13 +321,14 @@ Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 
 
 \cleardoublepage
 \chapter{Estado del arte}
+\label{chap:art}
 
 En este apartado se describen las diferentes tecnologías que se han utilizado para llevar a cabo este proyecto.
 
-\section{App Inventor}
+\section{AppInventor}
 \label{sec:ai}
 
-App Inventor~\cite{wolber2011app} es un entorno de programación visual que permite crear aplicaciones móviles para Android. Surge para ayudar a las personas a pasar del consumo de tecnología a la creación. El ``código" que utiliza son bloques que los usuarios pueden arrastrar y soltar, para unirlos entre sí como si fuera un puzzle.
+AppInventor~\cite{wolber2011app} es un entorno de programación visual que permite crear aplicaciones móviles para Android. Surge para ayudar a las personas a pasar del consumo de tecnología a la creación. El ``código" que utiliza son bloques que los usuarios pueden arrastrar y soltar, para unirlos entre sí como si fuera un puzzle.
 
 Este entorno utiliza dos modos para la creación de una aplicación: \emph{Blocks} y \emph{Designer}. En las figuras~\ref{figura:ai-blocks} y~\ref{figura:ai-designer}\footnote{Fuente: \url{http://explore.appinventor.mit.edu/designer-blocks}}, se muestran las pantallas de ambos modos con los diferentes elementos que los conforman.
 
@@ -372,10 +366,10 @@ Esta filosofía, conocida como ``El Zen de Python'', fue escrita por Tim Peters. 
  \item Claro: ``If the implementation is hard to explain, it's a bad idea''.
 \end{itemize}
 
-\section{Django~\cite{bastida2012django}}
+\section{Django}
 \label{sec:django}
 
-Django\footnote{\url{https://www.djangoproject.com/}} es un framework para aplicaciones web, escrito en Python. Se basa en el patrón MVC (Figura~\ref{figura:mvc}) y permite un desarrollo rápido, con un diseño limpio y práctico gracias a su filosofía DRY (Don't Repeat Yourself). Debido a esto, destaca por tener un número reducido de ficheros y carpetas. En la Tabla~\ref{tabla:comp-django}, se observa una comparación con otros framework.
+Django\footnote{\url{https://www.djangoproject.com/}} es un framework para aplicaciones web, escrito en Python. Permite un desarrollo rápido, con un diseño limpio y práctico gracias a su filosofía DRY (Don't Repeat Yourself). Debido a esto, destaca por tener un número reducido de ficheros y carpetas. En la Tabla~\ref{tabla:comp-django}, se observa una comparación con otros framework~\cite{bastida2012django}.
 
 \begin{table}[H]
  \begin{center}
@@ -391,6 +385,8 @@ Django\footnote{\url{https://www.djangoproject.com/}} es un framework para aplic
  \end{center}
 \end{table}
 
+Se basa en el patrón MVC (Modelo-Vista-Controlador). El modelo se define en models.py y contiene la información de los datos que maneja el servidor. El controlador está formado por dos scripts: urls.py que, dependiendo de la petición HTTP, invoca a una vista o a otra y views.py que genera la respuesta HTTP, consultando al modelo si es necesario. La vista es la respuesta generada por el controlador, comúnmente es el HTML de una página web.
+
 Otras ventajas que presenta Django son el ORM y el lenguaje de plantillas:
 
 \begin{itemize}
@@ -398,8 +394,6 @@ Otras ventajas que presenta Django son el ORM y el lenguaje de plantillas:
 
   \item Lenguaje de plantillas: permite introducir variables y lógica simple en un HTML del siguiente modo: \{\{ variable \}\}, \{\% código \%\}. Para el uso de variables, en el render se pasa como argumento el contexto: un diccionario clave-valor, donde la clave es el nombre que va a tomar la variable dentro de la plantilla y el valor es la variable en sí.
 \end{itemize}
-
-FIXME: explicar en el texto principal de qué va la figura~\ref{figura:mvc}
 
 \begin{figure}[htbp]
   \centering
@@ -412,26 +406,60 @@ FIXME: explicar en el texto principal de qué va la figura~\ref{figura:mvc}
 \section{Dr. Scratch} 
 \label{sec:drscratch}
 
-FIXME: hablar de Dr. Scratch
+Antes de empezar a implementar la aplicación web Dr. AppInventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario feedback para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/dr-scratch}
+  \caption{Análisis de un proyecto en Dr. Scratch.}
+  \label{figura:dr-scratch}
+\end{figure}
 
 
 \section{pandas}
 
-Es un paquete de Python\footnote{\url{https://pandas.pydata.org/pandas-docs/stable/release.html}} que permite el manejo de datos de una forma rápida y flexible. Su objetivo es ser el componente fundamental de alto nivel para realizar análisis de datos prácticos y reales en Python.
+Es una librería de código abierto nacida en 2008~\cite{python2008pandas}. Proporciona estructuras de datos de alto rendimiento y fáciles de usar, además de herramientas de análisis de datos. Su objetivo es ser el componente fundamental de alto nivel para realizar análisis de datos prácticos y reales en Python.
 
-Utiliza las estructuras de datos Series (matriz unidimensional capaz de contener cualquier tipo de datos) o DataFrames (estructura bidimensional, puede verse como un conjunto de Series). Los DataFrames son los más comúnmente utilizados en pandas.
+Algunos de los elementos que forman pandas son:
 
-En pandas existe la opción de leer ficheros CSV, entre otros, y convertirlos en DataFrames. Se complementa con otros paquetes como NumPy (computación científica) y matplotlib (representación de gráficos).
+\begin{itemize}
 
-FIXME: contar algo más y poner una figura. También estaría bien una referencia.
+\item Estructuras de datos etiquetadas: Series (matriz unidimensional capaz de contener cualquier tipo de datos) y DataFrame (estructura bidimensional, puede verse como un conjunto de Series). Los DataFrames son los más comúnmente utilizados en pandas.
 
+\item Objetos que permiten tanto la indexación de ejes simples como la indexación de ejes jerárquicos/multiniveles.
+
+\item Herramientas para agregar y transformar conjuntos de datos.
+
+\item Herramientas de entrada/salida: carga de tablas desde archivos planos (CSV, delimitados, Excel 2003), y almacenamiento y carga de objetos pandas desde el formato PyTables/HDF5.
+
+\item Combinación con otros paquetes como NumPy (computación científica) y matplotlib (representación de gráficos).
+
+\end{itemize}
 
 \subsection{Jupyter Notebook}
 
-Para ejecutar pandas se suele utilizar Jupyter Notebook\footnote{\url{http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html}}, una aplicación web donde se puede escribir código por líneas como si fuera un cuaderno. Permite mostrar, editar y ejecutar dicho código de manera que se visualicen cómodamente los resultados.
+Para ejecutar pandas se suele utilizar Jupyter Notebook\footnote{\url{http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html}}. Este ``cuaderno'' es una aplicación web que ofrece una interfaz al proceso de programación: desarrollo, documentación y ejecución, además permite visualizar los resultados cómodamente~\cite{jupyter}. A continuación, se muestran algunas características de la aplicación:
 
-FIXME: contar algo más y poner una figura. También estaría bien una referencia.
+\begin{itemize}
 
+\item Edición del código en el navegador, con resaltado de sintaxis, indentación y completación de tabulaciones.
+
+\item Posibilidad de ejecutar código desde el navegador y mostrar los resultados de los cálculos bajo el código ejecutado.
+
+\item Visualización de resultados utilizando representaciones multimedia, como HTML, LaTeX, PNG, SVG, etc. Por ejemplo, las figuras renderizadas con la librería matplotlib.
+
+\item Capacidad de incluir fácilmente notación matemática utilizando LaTeX, renderizado de forma nativa por MathJax.
+
+\end{itemize}
+
+La Figura~\ref{figura:pandas} es un ejemplo de instrucciones de pandas en un Jupyter Notebook.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/pandas}
+  \caption{Código pandas en Jupyter Notebook.}
+  \label{figura:pandas}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -442,7 +470,7 @@ FIXME: contar algo más y poner una figura. También estaría bien una referencia.
 \chapter{Diseño e implementación}
 \label{chap:design}
 
-En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto que ya se mencionaron brevemente en la sección \ref{sec:objetivos-especificos}. La Figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos. FIXME: explicar los hitos seguidos.
+En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto, que ya se mencionaron brevemente en la sección \ref{sec:objetivos-especificos}. La Figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos.
 
 \begin{figure}[!h]
   \centering
@@ -451,34 +479,30 @@ En este capítulo se explican los pasos necesarios para poder llevar a cabo el pr
   \label{figura:diag}
 \end{figure}
 
-\setcounter{section}{-1}
-\section{Dr. Scratch para App Inventor}
-\label{prev-dr-ai}
+\begin{itemize}
+  \item AppInventor/Dr. Scratch: Antes de comenzar a implementar Dr. AppInventor, un paso previo fue la familiarización con Dr. Scratch y AppInventor. Estas dos tecnologías fueron explicadas en el capítulo~\ref{chap:art}. A diferencia de Dr. Scratch, en el caso de Dr. AppInventor únicamente se realiza la evaluación de los proyectos ya que el análisis se centra en el pensamiento computacional. No se proporciona feedback para cada uno de los criterios ni tampoco se informa de las malas prácticas.
+  
+  \item Dr. AppInventor como aplicación web: la implementación de la aplicación desde la extracción de bloques y componentes hasta la evaluación de los proyectos. La implementación se explica con detalle en la sección~\ref{sec:dr-ai}.
+  
+  \item Recopilación de proyectos: qué proyectos se han utilizado para el análisis y cómo se han conseguido.  
+  
+  \item Dr. AppInventor para múltiples proyectos: modificar el algoritmo de Dr. AppInventor para analizar los proyectos obtenidos. La sección~\ref{sec:dr-ai-multi} detalla esta modificación.
+  
+  \item Análisis de los resultados: se realiza un estudio de los bloques con los datos proporcionados por el algoritmo. En el capítulo~\ref{chap:results} se desarrolla este análisis.  
+  
 
-FIXME: esto debería ir al capítulo de estado del arte.
+\end{itemize}
 
-Antes de empezar a implementar la aplicación web Dr. App Inventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario feedback para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
 
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=16cm, keepaspectratio]{img/dr-scratch}
-  \caption{Análisis de un proyecto en Dr. Scratch.}
-  \label{figura:dr-scratch}
-\end{figure}
-
-FIXME: a partir de aquí ya no.
-
-En el caso de Dr. App Inventor, se ha implementado únicamente la evaluación de los proyectos ya que el análisis se centrará en el pensamiento computacional.
-
-\section{Dr. App Inventor como aplicación web}
+\section{Dr. AppInventor como aplicación web}
 \label{sec:dr-ai}
 
-Una vez conocido el funcionamiento de Dr. Scratch y de App Inventor (sección~\ref{sec:ai}), se comienza con el proyecto en Django que dará lugar a la aplicación web.
+Una vez conocido el funcionamiento de Dr. Scratch y de AppInventor (sección~\ref{sec:ai}), se comienza con el proyecto en Django que dará lugar a la aplicación web.
 
 \subsection{Extracción de bloques y componentes}
 \label{subsec:extract}
 
-El algoritmo comienza con la extracción de las carpetas y ficheros que forman un programa en App Inventor, para ello hay que descomprimir el archivo del programa como si fuera un ZIP. A continuación se puede ver en forma de árbol la estructura de los directorios obtenidos: 
+El algoritmo comienza con la extracción de las carpetas y ficheros que forman un programa en AppInventor, para ello hay que descomprimir el archivo del programa como si fuera un ZIP. A continuación se puede ver en forma de árbol la estructura de los directorios obtenidos: 
 
 \dirtree{%
 .1 project.
@@ -499,7 +523,7 @@ El algoritmo comienza con la extracción de las carpetas y ficheros que forman un
 
 La carpeta \emph{assets} contiene los archivos multimedia (imágenes, audios y vídeos) que utiliza la aplicación. 
 
-La carpeta \emph{youngandroidproject} contiene el fichero con las propiedades de la aplicación, como por ejemplo: el nombre del proyecto en App Inventor, el nombre de la app o la versión. 
+La carpeta \emph{youngandroidproject} contiene el fichero con las propiedades de la aplicación, como por ejemplo: el nombre del proyecto en AppInventor, el nombre de la app o la versión. 
 
 La carpeta de verdadero interés para el análisis es \emph{src}, dentro de la cual están los ficheros .bky y .scm, cada una de las pantallas de la aplicación está formada por estos dos ficheros, cuyo nombre coincide con el nombre de la pantalla:
 \begin{itemize}
@@ -524,7 +548,7 @@ La carpeta de verdadero interés para el análisis es \emph{src}, dentro de la cua
 
 \subsection{Puntuación del proyecto}
 \label{sec:score}
-Teniendo extraídos todos los bloques y componentes, comienza la fase de clasificación. Para clasificar (y, posteriormente, puntuar) nos basamos en la rúbrica de Code Master\footnote{\url{http://apps.computacaonaescola.ufsc.br:8080/rubrica_appinventor.jsp}}, una herramienta que analiza proyectos Snap! y App Inventor. Los criterios para obtener la puntuación son los siguientes: 
+Teniendo extraídos todos los bloques y componentes, comienza la fase de clasificación. Para clasificar (y, posteriormente, puntuar) nos basamos en la rúbrica de Code Master\footnote{\url{http://apps.computacaonaescola.ufsc.br:8080/rubrica_appinventor.jsp}}, una herramienta que analiza proyectos Snap! y AppInventor. Los criterios para obtener la puntuación son los siguientes: 
 
 \textbf{Screens}: hay que tener en cuenta tres cosas: el número de pantallas, si las pantallas contienen componentes visuales o no y si las pantallas cambian de estado programáticamente. Para obtener el número de pantallas, contamos el número de ficheros .bky (también se podrían contar los .scm y obtendríamos el mismo resultado). Si queremos ver si una pantalla contiene componentes visuales, tenemos que comprobar si alguno de sus componentes están en la lista de visuales. Por último, si la pantalla contiene cualquier bloque se puede decir que, potencialmente, cambiará de estado.
 
@@ -542,7 +566,7 @@ Teniendo extraídos todos los bloques y componentes, comienza la fase de clasific
 
 \textbf{Math and Logic Operations}: el algoritmo tiene que hallar los bloques que contengan math o logic en su tipo. La puntuación depende de cuántos bloques de estos tipos se utilicen.
 
-\textbf{Lists}: para la evaluación de este criterio se comprueba el número de listas creadas (bloque lists\_create\_with). Para conseguir la puntuación máxima, es necesario una lista de tuplas, lo que en App Inventor se traduce como una lista de listas o también el uso de lists\_lookup\_in\_pairs.
+\textbf{Lists}: para la evaluación de este criterio se comprueba el número de listas creadas (bloque lists\_create\_with). Para conseguir la puntuación máxima, es necesario una lista de tuplas, lo que en AppInventor se traduce como una lista de listas o también el uso de lists\_lookup\_in\_pairs.
 
 \textbf{Data Persistance}: la persistencia de datos se puntúa en función de dónde se guardan los datos. Si es en variables o componentes de la interfaz gráfica, no puntúa. Si se almacenan File o FusionTables, puntúan 1. Si los datos se guardan en TinyDB, 2. Por último, si se utilizan TinyWebDB o FirebaseDB se obtendrá una puntuación de 3. Todas estas formas de almacenamiento se localizan en el .scm como componentes.
 
@@ -558,18 +582,23 @@ Teniendo extraídos todos los bloques y componentes, comienza la fase de clasific
 
 En la aplicación web, el usuario selecciona el proyecto que desea evaluar y lo sube. La aplicación realiza el análisis de los bloques y componentes siguiendo estos criterios y cuando se tienen todos puntuados, se muestra la página de resultados, similar a la de Dr. Scratch. La Figura~\ref{figura:dr-ai-score} muestra la evaluación de un proyecto con nivel alto.
 
-\section{Dr. App Inventor para múltiples proyectos}
+\section{Dr. AppInventor para múltiples proyectos}
+\label{sec:dr-ai-multi}
 
 Ya tenemos el algoritmo que extrae los bloques, los clasifica y devuelve una evaluación de un proyecto, ahora queremos que el algoritmo extraiga los bloques y realice la evaluación varios proyectos a la vez para posteriormente analizar los datos obtenidos.
 
 \subsection{Recopilación de proyectos}
 
-Para obtener los proyectos hay que acceder a la galería de App Inventor (puede verse en la Figura~\ref{figura:gallery}) y seleccionar los proyectos deseados. En nuestro caso, tenemos 62 proyectos de la sección ``Popular'' y 1160 de la sección ``Recent'', por orden de aparición. En la sección~\ref{sec:problems} se darán más detalles del proceso de obtención.
+Para obtener los proyectos hay que acceder a la galería de AppInventor (puede verse en la Figura~\ref{figura:gallery}) y seleccionar los proyectos deseados. En nuestro caso, tenemos 62 proyectos de la sección ``Popular'' y 1.160 de la sección ``Recent'', por orden de aparición. 
+
+Para descargar los proyectos es necesario iniciar sesión con una cuenta gmail, acceder a la galería, copiar el proyecto al perfil propio y, por último, descargarlo. El proceso se trató de automatizar lo máximo posible, tanto como la web de AppInventor permitió. Con un script se copiaban los proyectos de la galería al perfil y, como no se pueden descargar todos los proyectos del perfil a la vez, empleamos otro script para descargarlos uno a uno.
+
+
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=16cm, keepaspectratio]{img/gallery}
-  \caption{Galería de App Inventor.}
+  \caption{Galería de AppInventor.}
   \label{figura:gallery}
 \end{figure}
 \newpage
@@ -600,8 +629,9 @@ Además, se crea un nuevo diccionario que tiene como clave los tipos de bloques q
 
 \cleardoublepage
 \chapter{Resultados}
+\label{chap:results}
 
-Con los ficheros generados en la última sección, ya tenemos los datos que vamos a tratar y analizar, para comprobar el estado actual de los proyectos desarrollados por la comunidad App Inventor. 
+Con los ficheros generados en la última sección, ya tenemos los datos que vamos a tratar y analizar, para comprobar el estado actual de los proyectos desarrollados por la comunidad AppInventor. 
 
 \section{Número de bloques}
 
@@ -668,7 +698,7 @@ Total & 154.382\\ \hline
 
 \subsection{Tipos de bloques}
 
-Nos referimos con tipos de bloques a cada uno de los diferentes bloques que se pueden utilizar en App Inventor. Para esta sección, se realiza un sumatorio de los bloques utilizados en todos los proyectos, separados por tipo. En la Tabla~\ref{tabla:type-blocks} se muestran las estadísticas descriptivas del número de bloques que conforman los tipos. Vemos que hay 107 tipos diferentes en total con una media de aproximadamente 1.443 bloques. La desviación típica es mucho mayor que la media, lo que significa que existen valores extremos, es decir, hay grandes diferencias entre valores. Otra prueba de ello es la mediana, 133, que nos indica que, por lo menos, el 50\% de los proyectos tienen 133 bloques o menos, quedando muy lejos de la media. Esto nos indica que habrá una minoría de proyectos con valores muy elevados que alzarán la media, como puede se puede ver en el máximo: 28.927 bloques. 
+Nos referimos con tipos de bloques a cada uno de los diferentes bloques que se pueden utilizar en AppInventor. Para esta sección, se realiza un sumatorio de los bloques utilizados en todos los proyectos, separados por tipo. En la Tabla~\ref{tabla:type-blocks} se muestran las estadísticas descriptivas del número de bloques que conforman los tipos. Vemos que hay 107 tipos diferentes en total con una media de aproximadamente 1.443 bloques. La desviación típica es mucho mayor que la media, lo que significa que existen valores extremos, es decir, hay grandes diferencias entre valores. Otra prueba de ello es la mediana, 133, que nos indica que, por lo menos, el 50\% de los proyectos tienen 133 bloques o menos, quedando muy lejos de la media. Esto nos indica que habrá una minoría de proyectos con valores muy elevados que alzarán la media, como puede se puede ver en el máximo: 28.927 bloques. 
 
 \begin{table}[!h]
 \begin{center}
@@ -824,7 +854,7 @@ En esta sección se proponen sugerencias o ideas para futuros trabajos con intenc
 \begin{figure}[!h]
   \centering
   \includegraphics[width=16cm, keepaspectratio]{img/dr-ai-score}
-  \caption{Página de resultados en Dr. App Inventor.}
+  \caption{Página de resultados en Dr. AppInventor.}
   \label{figura:dr-ai-score}
 \end{figure}
 
