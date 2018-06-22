@@ -177,7 +177,7 @@ Por último pero no por ello menos importante, quiero dar las gracias a Sofía. Po
 
 Este Trabajo Fin de Grado consiste en una evaluación de proyectos del entorno AppInventor, cuyo código se compone de bloques. Durante el proceso, se analizan los distintos bloques que se emplean en los programas con el fin de obtener una visión general de lo que están desarrollando actualmente los usuarios de AppInventor. 
 
-Esta idea surge a partir de las herramientas que evalúan el pensamiento computacional en los proyectos, como Dr. Scratch o Code Master. Dichas herramientas son de utilidad para dar una puntuación pero no proporcionan suficiente feedback para que el usuario mejore. Por ello, el objetivo final es encontrar caminos de mejora de las habilidades del pensamiento computacional.
+Esta idea surge a partir de las herramientas que evalúan el pensamiento computacional en los proyectos, como Dr. Scratch o Code Master. Dichas herramientas son de utilidad para dar una puntuación pero no proporcionan suficiente \emph{feedback} para que el usuario mejore. Por ello, el objetivo final es encontrar caminos de mejora de las habilidades del pensamiento computacional.
 
 Para conseguirlo, se desarrolla la herramienta Dr. AppInventor, una aplicación web basada en Dr. Scratch para el análisis de proyectos AppInventor. La aplicación está escrita en Django, un framework para aplicaciones web de Python. Después, modificando el algoritmo de Dr. AppInventor, se extraen los bloques y las puntuaciones de un conjunto de proyectos, previamente extraídos de la galería, y se procede al análisis de los datos conseguidos.
 
@@ -245,7 +245,7 @@ Consecuentemente, han aparecido herramientas que evalúan el desarrollo de Pensam
 \label{sec:motiv}
 
 Estudios recientes han descubierto que las herramientas de análisis han resultado ser más útiles para los profesores a la hora de corregir, que para los alumnos a la hora de mejorar~\cite{robles2018ontools}.
-No obstante, si queremos que dichas herramientas cumplan con una función más didáctica, hemos de dedicar mayor atención al proceso de aprendizaje. Por ello realizamos Dr. AppInventor, para tener una herramienta que permite la evaluación de proyectos AppInventor de manera automática. Con Dr. AppInventor hemos realizado un análisis de un gran número de proyetos para obtener una visión general de los proyectos que está desarrollando la comunidad. Con esta visión queremos encontrar posibles formas de ayudar al alumno a mejorar sus habilidades, ya sea mediante lecciones, consejos o ejemplos, con la idea de introducirlas en la herramienta. 
+No obstante, si queremos que dichas herramientas cumplan con una función más didáctica, hemos de dedicar mayor atención al proceso de aprendizaje. Por ello realizamos Dr. AppInventor, para tener una herramienta que permite la evaluación de proyectos AppInventor de manera automática. Con Dr. AppInventor hemos realizado un análisis de un gran número de proyectos para obtener una visión general de los proyectos que está desarrollando la comunidad. Con esta visión queremos encontrar posibles formas de ayudar al alumno a mejorar sus habilidades, ya sea mediante lecciones, consejos o ejemplos, con la idea de introducirlas en la herramienta. 
 
 \subsection*{Motivación Personal}
 \label{subsec:pers-motiv}
@@ -328,7 +328,7 @@ En este apartado se describen las diferentes tecnologías que se han utilizado pa
 \section{AppInventor}
 \label{sec:ai}
 
-AppInventor~\cite{wolber2011app} es un entorno de programación visual que permite crear aplicaciones móviles para Android. Surge para ayudar a las personas a pasar del consumo de tecnología a la creación. El ``código" que utiliza son bloques que los usuarios pueden arrastrar y soltar, para unirlos entre sí como si fuera un puzzle.
+AppInventor~\cite{wolber2011app} es un entorno de programación visual que permite crear aplicaciones móviles para Android. Surge para ayudar a las personas a pasar del consumo de tecnología a la creación. El ``código" que utiliza son bloques que los usuarios pueden arrastrar y soltar, para unirlos entre sí como si fuera un \emph{puzzle}.
 
 Este entorno utiliza dos modos para la creación de una aplicación: \emph{Blocks} y \emph{Designer}. En las figuras~\ref{figura:ai-blocks} y~\ref{figura:ai-designer}\footnote{Fuente: \url{http://explore.appinventor.mit.edu/designer-blocks}}, se muestran las pantallas de ambos modos con los diferentes elementos que los conforman.
 
@@ -341,7 +341,7 @@ Este entorno utiliza dos modos para la creación de una aplicación: \emph{Blocks}
     \label{figura:ai-blocks}
  \end{figure}
  
-\textbf{Designer}: en este modo se seleccionan los componentes que van a constituir la aplicación. Estos componentes pueden ser visuales (los que formarán la interfaz de usuario) o no visuales (diversas funcionalidades del dispositivo como el acelerómetro o el bluetooth, bases de datos o comandos que permiten controlar robots LEGO® MINDSTORMS® NXT). Se puede ver un ejemplo del modo ``designer'' en la Figura~\ref{figura:ai-designer}.
+\textbf{Designer}: en este modo se seleccionan los componentes que van a constituir la aplicación. Estos componentes pueden ser visuales (los que formarán la interfaz de usuario) o no visuales (diversas funcionalidades del dispositivo como el acelerómetro o Bluetooth, bases de datos o comandos que permiten controlar robots LEGO® MINDSTORMS® NXT). Se puede ver un ejemplo del modo ``designer'' en la Figura~\ref{figura:ai-designer}.
  
   \begin{figure}
     \centering
@@ -403,10 +403,15 @@ Otras ventajas que presenta Django son el ORM y el lenguaje de plantillas:
 \end{figure}
 
 
+\section{JavaScript}
+
+FIXME: incluir JavaScript (y quizás también JQuery), que algo utilizas
+
+
 \section{Dr. Scratch} 
 \label{sec:drscratch}
 
-Antes de empezar a implementar la aplicación web Dr. AppInventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario feedback para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
+Antes de empezar a implementar la aplicación web Dr. AppInventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario \emph{feedback} para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
 
 \begin{figure}[!h]
   \centering
@@ -436,9 +441,9 @@ Algunos de los elementos que forman pandas son:
 
 \end{itemize}
 
-\subsection{Jupyter Notebook}
+\section{Jupyter Notebooks}
 
-Para ejecutar pandas se suele utilizar Jupyter Notebook\footnote{\url{http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html}}. Este ``cuaderno'' es una aplicación web que ofrece una interfaz al proceso de programación: desarrollo, documentación y ejecución, además permite visualizar los resultados cómodamente~\cite{jupyter}. A continuación, se muestran algunas características de la aplicación:
+Junto con pandas, se suele utilizar Jupyter Notebook\footnote{\url{http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html}}. Este ``cuaderno'' es una aplicación web que ofrece una interfaz al proceso de programación: desarrollo, documentación y ejecución, además permite visualizar los resultados cómodamente~\cite{jupyter}. A continuación, se muestran algunas características de la aplicación:
 
 \begin{itemize}
 
@@ -461,6 +466,7 @@ La Figura~\ref{figura:pandas} es un ejemplo de instrucciones de pandas en un Jup
   \label{figura:pandas}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DISEÑO E IMPLEMENTACIÓN %
@@ -470,7 +476,7 @@ La Figura~\ref{figura:pandas} es un ejemplo de instrucciones de pandas en un Jup
 \chapter{Diseño e implementación}
 \label{chap:design}
 
-En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto, que ya se mencionaron brevemente en la sección \ref{sec:objetivos-especificos}. La Figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos.
+En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto, que ya se mencionaron brevemente en la sección~\ref{sec:objetivos-especificos}. La Figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos.
 
 \begin{figure}[!h]
   \centering
@@ -480,7 +486,7 @@ En este capítulo se explican los pasos necesarios para poder llevar a cabo el pr
 \end{figure}
 
 \begin{itemize}
-  \item AppInventor/Dr. Scratch: Antes de comenzar a implementar Dr. AppInventor, un paso previo fue la familiarización con Dr. Scratch y AppInventor. Estas dos tecnologías fueron explicadas en el capítulo~\ref{chap:art}. A diferencia de Dr. Scratch, en el caso de Dr. AppInventor únicamente se realiza la evaluación de los proyectos ya que el análisis se centra en el pensamiento computacional. No se proporciona feedback para cada uno de los criterios ni tampoco se informa de las malas prácticas.
+  \item AppInventor/Dr. Scratch: Antes de comenzar a implementar Dr. AppInventor, un paso previo fue la familiarización con Dr. Scratch y AppInventor. Estas dos tecnologías fueron explicadas en el capítulo~\ref{chap:art}. A diferencia de Dr. Scratch, en el caso de Dr. AppInventor únicamente se realiza la evaluación de los proyectos ya que el análisis se centra en el pensamiento computacional. No se proporciona \emph{feedback} para cada uno de los criterios ni tampoco se informa de las malas prácticas.
   
   \item Dr. AppInventor como aplicación web: la implementación de la aplicación desde la extracción de bloques y componentes hasta la evaluación de los proyectos. La implementación se explica con detalle en la sección~\ref{sec:dr-ai}.
   
@@ -591,7 +597,7 @@ Ya tenemos el algoritmo que extrae los bloques, los clasifica y devuelve una eva
 
 Para obtener los proyectos hay que acceder a la galería de AppInventor (puede verse en la Figura~\ref{figura:gallery}) y seleccionar los proyectos deseados. En nuestro caso, tenemos 62 proyectos de la sección ``Popular'' y 1.160 de la sección ``Recent'', por orden de aparición. 
 
-Para descargar los proyectos es necesario iniciar sesión con una cuenta gmail, acceder a la galería, copiar el proyecto al perfil propio y, por último, descargarlo. El proceso se trató de automatizar lo máximo posible, tanto como la web de AppInventor permitió. Con un script se copiaban los proyectos de la galería al perfil y, como no se pueden descargar todos los proyectos del perfil a la vez, empleamos otro script para descargarlos uno a uno.
+Para descargar los proyectos es necesario iniciar sesión con una cuenta de Gmail, acceder a la galería, copiar el proyecto al perfil propio y, por último, descargarlo. El proceso se trató de automatizar lo máximo posible, tanto como la web de AppInventor permitió. Con un script se copiaban los proyectos de la galería al perfil y, como no se pueden descargar todos los proyectos del perfil a la vez, empleamos otro script para descargarlos uno a uno.
 
 
 
@@ -622,6 +628,23 @@ Además, se crea un nuevo diccionario que tiene como clave los tipos de bloques q
   \label{figura:csv-blocks}
 \end{figure}
 
+\section{Interfaz de entrada}
+\label{app:interfaz-entrada}
+
+FIXME: hablar del interfaz de entrada
+
+\section{Interfaz de resultados}
+\label{app:interfaz-resultados}
+
+En la figura~\ref{figura:dr-ai-score} se muestra un ejemplo del interfaz web que el usuario ve una vez su proyecto ha sido analizado. FIXME: elaborar un poco más qué se ve en la figura.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/dr-ai-score}
+  \caption{Página de resultados en Dr. AppInventor.}
+  \label{figura:dr-ai-score}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RESULTADOS %
@@ -646,7 +669,7 @@ En la Tabla~\ref{tabla:proj-blocks} podemos visualizar las estadísticas de los t
 & Original & Sin vacíos & Sin duplicados \\ \hline
 Proyectos & 1.222 & 1.102 & 730\\ \hline
 Media & 187,89 & 208,35 & 211,48\\ \hline
-Desviación típica & 463,68 & 483.9 & 502,62 \\ \hline
+Desviación típica & 463,68 & 483,90 & 502,62 \\ \hline
 Mediana & 47 & 55 & 60\\ \hline
 Mínimo & 0 & 1 & 1\\ \hline
 Máximo & 5.476 & 5.476 & 5.476 \\ \hline
@@ -717,7 +740,7 @@ Total & 154.382\\ \hline
  \end{center}
 \end{table}
 
-A continuación se analizan los bloques más y menos utilizados. Además de realizar este estudio para todos los proyectos, se estudia también el uso en proyectos con baja variedad. Decimos que un proyecto tiene baja variedad cuando contiene como máximo 10 bloques diferentes. Se elige esta cifra ya que, de este modo los proyectos con baja variedad y los de alta variedad se distribuirán al 50\%, como se puede ver en la Tabla~\ref{tabla:variety-comp}. 
+A continuación se analizan los bloques más y menos utilizados. Además de realizar este estudio para todos los proyectos, se estudia también el uso en proyectos con baja variedad. Decimos que un proyecto tiene baja variedad cuando contiene como máximo 10 bloques diferentes. Se elige esta cifra ya que, de este modo los proyectos con baja variedad y los de alta variedad se distribuirán al 50\%, como se puede ver en la Tabla~\ref{tabla:type-blocks}. 
 
 Los resultados en la Tabla~\ref{tabla:use-blocks} muestran, fijándonos primero en todos los proyectos, que los dos bloques más utilizados son \emph{component\_set\_get}, cuya función es introducir u obtener las propiedades de un componente, y \emph{text} que se utiliza para crear strings. A continuación, está \emph{math\_number}, utilizado para representar números. En cuarto lugar, \emph{lexical\_variable\_get}, proporciona el valor de cualquier variable. Por último, \emph{component\_event} toma el valor de cualquier evento que pertenezca a un componente. Estos bloques representan un alto porcentaje de sus correspondientes familias: Componentes: 77,82\%; Texto: 89,06\%; Matemáticas: 61,57\%; Variables: 67,37\%. Mientras tanto, los bloques menos utilizados son aquellos con una función menos práctica desde el punto de vista de una aplicación móvil. Por ejemplo, \emph{math\_tan} que calcula la tangente dado un valor o \emph{text\_is\_string} que comprueba si una variable es un string.
 
@@ -846,17 +869,9 @@ En esta sección se proponen sugerencias o ideas para futuros trabajos con intenc
 % APÉNDICE(S) %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cleardoublepage
-\appendix
-\chapter{Manual de usuario}
-\label{app:manual}
+%\cleardoublepage
+%\appendix
 
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=16cm, keepaspectratio]{img/dr-ai-score}
-  \caption{Página de resultados en Dr. AppInventor.}
-  \label{figura:dr-ai-score}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
