@@ -33,6 +33,7 @@
 \usepackage{enumerate}
 \usepackage{listings}
 \usepackage{dirtree}
+\usepackage{multirow}
 
 \title{Memoria del Proyecto}
 \author{Nombre del autor}
@@ -402,16 +403,61 @@ Otras ventajas que presenta Django son el ORM y el lenguaje de plantillas:
   \label{figura:mvc}
 \end{figure}
 
+\section{HTML}
+
+HTML (HyperText Markup Language)~\cite{w3c2018html}, es el lenguaje principal de marcado de la web. Inicialmente fue planteado para describir semánticamente documentos científicos. Actualmente, debido a su diseño, se ha adaptado para describir otros tipos de documentos e incluso aplicaciones. El uso más conocido de HTML es la creación y representación visual de páginas web. Este lenguaje define la estructura de una página, pero no su funcionalidad. 
+
+Los documentos HTML tienen estructuras de árbol de elementos y texto. Cada elemento se denota en el código con etiquetas de inicio, junto con las que encontramos los atributos, y etiquetas de fin. El contenido se encuentra entre las dos etiquetas. Un ejemplo sería:
+
+$<$etiqueta atributo=``valor''$>$ contenido $<$\/etiqueta$>$.
+
+Se complementa con otras tecnologías para modificar la apariencia de la página (CSS) o para determinar la funcionalidad (JavaScript).
+
+\section{CSS}
+
+CSS (Cascade Style Sheets)~\cite{css}, son las siglas de hojas de estilo en cascada. Es el lenguaje que describe la presentación de una página web: colores, diseño y fuentes. Permite adaptar la presentación a distintos dispositivos, como pantallas de ordenador, móviles o tablets. Se puede utilizar con cualquier lenguaje de marcado basado en XML pero sobre todo se utiliza junto con HTML.
+
+Para dar estilo, se referencia el elemento deseado y se incluyen los atributos, por ejemplo: \\
+elemento \{
+
+color: ``color''; \\
+\}
+
+
 
 \section{JavaScript}
 
-FIXME: incluir JavaScript (y quizás también JQuery), que algo utilizas
+Es un lenguaje de programación desarrollado por Netscape que, originalmente, se llamó LiveScript. En 1995, como Java estaba en crecimiento, por razones de marketing comenzó a llamarse JavaScript, aunque los lenguajes no están relacionados entre sí~\cite{flanagan2006javascript}.
 
+JavaScript es interpretado, basado en prototipos, dinámico y débilmente tipado. Está compuesto de sentencias, comandos que ejecutará el navegador, separadas con punto y coma (;).  Se caracteriza por ser el lenguaje del lado cliente en las aplicaciones web y se suele utilizar para: interacción con el navegador o con el documento HTML, para abrir conexiones con el servidor (AJAX) o para dibujar en la página (canvas).
+
+\section{jQuery}
+
+jQuery es una librería de JavaScript rápida, ligera y rica en funciones con la idea de escribir menos y hacer más. El propósito es facilitar el uso de JavaScript en los sitios web. Para ello, jQuery utiliza métodos de una sola línea que realizan tareas que con JavaScript ocuparían varias. También simplifica muchas de las funcionalidades que son más complicadas con JavaScript, como las llamadas AJAX o la manipulación de los elementos de un HTML.
+
+Entre sus prestaciones destacamos: manipulación de HTML o CSS; manejo de eventos; desarrollo de animaciones; interacción con AJAX.
+
+La Tabla~\ref{tabla:comp-code} muestra la reducción que proporciona jQuery respecto a JavaScript:
+
+\begin{table}[H]
+ \begin{center}
+ \begin{tabular}{ | c | c | } 
+    \hline
+   \textbf{JavaScript} & \textbf{jQuery} \\ \hline
+   function changeBackgroundColor(color)\{ & \\
+   document.body.style.background = color;\} & \$ (`body').css(`background', `\#ccc')  \\ 
+   onload = ``changeBackgroundColor(`red');'' & \\
+   \hline
+ \end{tabular}
+ \caption{Comparación de los códigos JS y jQuery.}
+ \label{tabla:comp-code}
+ \end{center}
+\end{table}
 
 \section{Dr. Scratch} 
 \label{sec:drscratch}
 
-Antes de empezar a implementar la aplicación web Dr. AppInventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario \emph{feedback} para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
+Antes de empezar a implementar la aplicación web Dr. AppInventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario \emph{feedback} para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. Los usuarios tienen la opción también de descargar un diploma con los resultados de su proyecto. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
 
 \begin{figure}[!h]
   \centering
@@ -586,7 +632,7 @@ Teniendo extraídos todos los bloques y componentes, comienza la fase de clasific
 
 \textbf{Drawing and Animation}: para evaluar los componentes de dibujo y animación se tiene en cuenta el uso de estos componentes: canvas (1 punto), bola (2 puntos) e imagen interactiva (3 puntos).
 
-En la aplicación web, el usuario selecciona el proyecto que desea evaluar y lo sube. La aplicación realiza el análisis de los bloques y componentes siguiendo estos criterios y cuando se tienen todos puntuados, se muestra la página de resultados, similar a la de Dr. Scratch. La Figura~\ref{figura:dr-ai-score} muestra la evaluación de un proyecto con nivel alto.
+En la aplicación web, el usuario selecciona el proyecto que desea evaluar y lo sube. La aplicación realiza el análisis de los bloques y componentes siguiendo estos criterios y cuando se tienen todos puntuados, se muestra la página de resultados, similar a la de Dr. Scratch. Más adelante, en la Figura~\ref{figura:dr-ai-score} veremos la evaluación de un proyecto con nivel alto.
 
 \section{Dr. AppInventor para múltiples proyectos}
 \label{sec:dr-ai-multi}
@@ -594,11 +640,11 @@ En la aplicación web, el usuario selecciona el proyecto que desea evaluar y lo s
 Ya tenemos el algoritmo que extrae los bloques, los clasifica y devuelve una evaluación de un proyecto, ahora queremos que el algoritmo extraiga los bloques y realice la evaluación varios proyectos a la vez para posteriormente analizar los datos obtenidos.
 
 \subsection{Recopilación de proyectos}
+\label{subsec:projects}
 
 Para obtener los proyectos hay que acceder a la galería de AppInventor (puede verse en la Figura~\ref{figura:gallery}) y seleccionar los proyectos deseados. En nuestro caso, tenemos 62 proyectos de la sección ``Popular'' y 1.160 de la sección ``Recent'', por orden de aparición. 
 
 Para descargar los proyectos es necesario iniciar sesión con una cuenta de Gmail, acceder a la galería, copiar el proyecto al perfil propio y, por último, descargarlo. El proceso se trató de automatizar lo máximo posible, tanto como la web de AppInventor permitió. Con un script se copiaban los proyectos de la galería al perfil y, como no se pueden descargar todos los proyectos del perfil a la vez, empleamos otro script para descargarlos uno a uno.
-
 
 
 \begin{figure}[!h]
@@ -628,15 +674,37 @@ Además, se crea un nuevo diccionario que tiene como clave los tipos de bloques q
   \label{figura:csv-blocks}
 \end{figure}
 
-\section{Interfaz de entrada}
-\label{app:interfaz-entrada}
+\section{Interfaz de Dr. AppInventor}
+\label{app:interfaz}
 
-FIXME: hablar del interfaz de entrada
+\subsection{Página de inicio}
 
-\section{Interfaz de resultados}
+La web que verá el usuario al entrar en Dr. AppInventor tiene el aspecto mostrado en la Figura~\ref{figura:dr-ai-home}. La apariencia es exactamente la de Dr. Scratch, utilizamos todas las secciones e imágenes cambiando Scratch por AppInventor. 
+
+Para subir el proyecto que se desea analizar, a diferencia de Dr. Scratch, sólo se pueden subir archivos locales, ya que AppInventor no proporciona una URL desde la que descargar los proyectos. En el apartado de subida, pulsando la palabra ``proyecto'' de color rojo, aparece una imagen que muestra cómo el usuario puede descargar los proyectos de AppInventor a su ordenador. Esta imagen puede verse en la Figura~\ref{figura:dr-ai-help}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/dr-ai-home}
+  \caption{Página de inicio de Dr. AppInventor.}
+  \label{figura:dr-ai-home}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/dr-ai-help}
+  \caption{Ayuda para descargar un proyecto AppInventor.}
+  \label{figura:dr-ai-help}
+\end{figure}
+
+\subsection{Página de resultados}
 \label{app:interfaz-resultados}
 
-En la figura~\ref{figura:dr-ai-score} se muestra un ejemplo del interfaz web que el usuario ve una vez su proyecto ha sido analizado. FIXME: elaborar un poco más qué se ve en la figura.
+En la Figura~\ref{figura:dr-ai-score} se muestra un ejemplo del interfaz web que el usuario ve una vez su proyecto ha sido analizado. Como mencionamos anteriormente, solo se implementa la evaluación de los criterios del pensamiento computacional. 
+
+A la izquierda se puede ver en primer lugar la puntuación total y debajo las funcionalidades de Dr. Scratch que no se han implementado para este proyecto: ``Mejores prácticas'' que muestran los malos hábitos de programación en el proyecto y ``Certificado del proyecto'' donde se puede descargar un diploma con el resultado obtenido. 
+
+A la derecha se muestran las puntuaciones de los criterios individualmente. Este ejemplo en concreto es el programa con mayor variedad de bloques, esto es muy importante para la puntuación final como veremos en el siguiente capítulo. Podemos ver que obtiene una calificación alta: 36/45. En más de la mitad de criterios consigue la puntuación máxima, 3 puntos. Cuatro de los criterios se califican con 2 puntos y únicamente hay un criterio con 1 punto y otro que no puntúa.
 
 \begin{figure}[!h]
   \centering
@@ -818,14 +886,16 @@ Con estos resultados podemos concluir que la variedad es otro parámetro a tener 
 \chapter{Conclusiones}
 \label{chap:conclusiones}
 
+Este último capítulo es un análisis de los resultados conseguidos con este Trabajo Fin de Grado desde el punto de vista de los objetivos planteados pero también desde el punto de vista de los conocimientos aplicados y adquiridos. Por último, finaliza con el planteamiento de algunos futuros trabajos.
 
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
+Repasando el capítulo~\ref{chap:objetivos}, el objetivo principal de este proyecto es crear una herramienta que analice el pensamiento computacional de proyectos AppInventor. Este objetivo sí se ha cumplido, hemos creado la aplicación web Dr. AppInventor, que sigue el diseño de Dr. Scratch con la rúbrica de Code Master y proporciona una evaluación de los proyectos AppInventor. \\
 
-Es aquí donde hay que debatir qué se ha conseguido y qué no. 
-Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
+Por otro lado, a partir de esta herramienta pretendíamos buscar caminos de aprendizaje para guiar a los usuarios en el desarrollo de sus habilidades del pensamiento computacional. Esta búsqueda la realizamos mediante el análisis de varios proyectos de la galería de AppInventor. Este análisis nos ha proporcionado información sobre cómo los alumnos pueden mejorar, ya que hemos encontrado carencias en bloques directamente ligados a las habilidades. Además, hemos confirmado la importancia de la variedad de bloques dentro de un proyecto para conseguir un buen resultado. Podemos decir que esta información nos muestra al menos tres lecciones para los usuarios: bloques de Control, bloques de Procedimientos y variedad en los proyectos. Por lo tanto, el objetivo de localizar caminos de aprendizaje también se ha cumplido.
+
+Los objetivos específicos, como ya se mencionó en su correspondiente capítulo, eran las tareas que hizo falta completar para conseguir el objetivo general. Por ello, afirmamos que se cumplieron. Sin embargo, la obtención de proyectos se vio limitada debido a problemas con la web de AppInventor. Como ya adelantamos en la sección~\ref{subsec:projects}, utilizamos dos scripts para automatizar la extracción de los proyectos, uno de copia al perfil y otro de descarga. El script de copia solo podia guardar en el perfil entre 30 y 40 bloques en una pasada, ya que, a partir de estas cifras, la web se bloqueaba y dejaba de responder. Algo similar ocurría con el script de descarga. Esto provocó un aumento del tiempo de descarga y, por lo tanto, una disminución del número de proyectos obtenidos.
 
 
 \section{Aplicación de lo aprendido}
@@ -845,11 +915,12 @@ Sería injusto por mi parte no mencionar las demás asignaturas ya que, de un modo
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-En esta sección se explican los conocimientos que fueron necesarios adquirir para el correcto desarrollo de este trabajo.
+En esta sección se explican los conocimientos que se han adquirido gracias al desarrollo de este trabajo:
 
 \begin{enumerate}
   \item La herramienta Django de Python: para la implementación de la aplicación web. Además, me sirvió para adelantar trabajo ya que, en la asignatura Laboratorio de Tecnologías Audiovisuales en la Web del segundo cuatrimestre de este curso, fue parte del temario.
   \item La librería pandas también de Python, me permitió tomar contacto con el análisis de datos y de la cual todavía me queda mucho por descubrir.
+  \item Dejando de lado la programación, he descubierto lo que es abarcar un proyecto real, donde no hay un guión a seguir como en las prácticas de la universidad.
 \end{enumerate}
 
 
@@ -859,8 +930,10 @@ En esta sección se explican los conocimientos que fueron necesarios adquirir par
 En esta sección se proponen sugerencias o ideas para futuros trabajos con intención de mejorar las habilidades del pensamiento computacional:
 
 \begin{itemize}
+  \item En primer lugar, incluir los caminos de mejora en la herramienta Dr. AppInventor.
+  \item Proseguir con el análisis, añadiendo nuevos proyectos para obtener más información.
   \item Siguiendo las posibles mejoras propuestas en~\cite{robles2018ontools}, un posible trabajo futuro es mostrar a los aprendices ejemplos y proponer ejercicios para que practiquen. Los ejemplos y ejercicios propuestos deben incluir bloques de Control y/o Procedimientos, una variedad alta o la combinación de ambos. Otro posible paso sería proporcionar retroalimentación personalizada a cada usuario basada en sus progresos y necesidades. Para llevar esto a cabo, podría extrapolarse el análisis realizado en este trabajo a los proyectos de cada usuario en concreto.
-  \item Otra medida que se propone en~\cite{robles2018ontools} es integrar las herramientas de análisis en sus entornos de desarrollo correspondientes, a raíz de esto puede surgir una medida aunque más extrema: diseñar un nuevo entorno orientado especialmente al desarrollo del pensamiento computacional.
+  \item Otra medida que se propone en~\cite{robles2018ontools} es integrar las herramientas de análisis en sus entornos de desarrollo correspondientes, a raíz de esto puede surgir una nueva idea aunque más extrema: diseñar un nuevo entorno orientado especialmente al desarrollo del pensamiento computacional.
 \end{itemize} 
 
 
@@ -869,9 +942,24 @@ En esta sección se proponen sugerencias o ideas para futuros trabajos con intenc
 % APÉNDICE(S) %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\cleardoublepage
-%\appendix
+\cleardoublepage
+\appendix
+\chapter{Manual de usuario}
 
+Este apéndice está dedicado a explicar cómo poner en marcha y utilizar la aplicación web Dr. AppInventor. Es necesario tener Python 2.7 y Django 1.8 para ejecutarlo.
+
+Los archivos que necesita Dr. AppInventor se encuentran en un repositorio de Github\footnote{\url{https://github.com/robernom/dr-app-inventor}} y para obtenerlos se puede hacer de dos formas: clonar el repositorio o descargarlo como ZIP. Una vez se ha descargado todo, hay que seguir estos pasos:
+
+\begin{enumerate}
+  \item Abrir el terminal en el directorio donde se encuentre el código.
+  \item Ejecutar el comando: \emph{python manage.py migrate}.
+  \item Ejecutar el comando: \emph{python manage.py runserver}.
+  \item Abrir en un navegador la siguiente URL: localhost:8000.
+\end{enumerate}
+
+En el navegador aparecerá la página de inicio, vista en la imagen~\ref{figura:dr-ai-home}. Para subir el proyecto que se desea analizar hay que pulsar en ``Elige Proyecto'' y seleccionar el archivo. El análisis comenzará tras hacer click en el botón ``ANALIZA MI PROYECTO'' y la aplicación pasará a la página con los resultados del proyecto, similar a la vista en la imagen~\ref{figura:dr-ai-score}
+
+En un futuro, si la aplicación se ejecuta desde un servidor y se asigna a un dominio, los usuarios no tendrán que realizar estos pasos. Únicamente necesitarán acceder desde su navegador a la URL correspondiente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
