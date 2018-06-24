@@ -268,7 +268,7 @@ En esta sección se detalla la estructura de la memoria, la cual está dividida en
   
   \item En el capítulo~\ref{chap:objetivos} se muestra el objetivo principal del proyecto, junto con los subobjetivos necesarios para cumplirlo. Cada subobjetivo muestra el periodo de tiempo durante el que se realizó.
   
-  \item Estado del arte: en este capítulo se exponen con una breve explicación las tecnologías existentes que se han utilizado para la realización del trabajo. Estas tecnologías son: AppInventor, Dr. Scratch, Python, Django y pandas.
+  \item Estado del arte: en este capítulo se exponen con una breve explicación las tecnologías existentes que se han utilizado para la realización del trabajo. %Estas tecnologías son: AppInventor, Dr. Scratch, Python, Django y pandas.
   
   \item Diseño e implementación: este capítulo explica detalladamente la creación de la herramienta Dr. AppInventor y la preparación del algoritmo para extraer los datos de los proyectos.
   
@@ -300,17 +300,17 @@ En el proceso de alcanzar el objetivo general, ha sido necesario realizar antes 
 
 \begin{enumerate}[1.]
 
-\item Finales de septiembre de 2017 - Octubre de 2017. Documentación sobre el contexto en el que se desarrolla el trabajo: pensamiento computacional, lenguajes de programación visual basados en bloques y herramientas de análisis de programas en dichos lenguajes.
+\item Finales de septiembre de 2017 - octubre de 2017: Documentación sobre el contexto en el que se desarrolla el trabajo: pensamiento computacional, lenguajes de programación visual basados en bloques y herramientas de análisis de programas en dichos lenguajes.
 
-\item Octubre de 2017 - Noviembre de 2017. Conocer la estructura de AppInventor: uso y funcionamiento, los tipos de bloques y componentes que pueden emplearse en los proyectos y los ficheros que forman un proyecto.
+\item Octubre de 2017 - noviembre de 2017: Conocer la estructura de AppInventor: uso y funcionamiento, los tipos de bloques y componentes que pueden emplearse en los proyectos y los ficheros que forman un proyecto.
 	
-\item Noviembre de 2017 - Febrero de 2018. Estudiar la aplicación de Dr. Scratch\footnote{\url{http://drscratch.org/}}, que evalúa proyectos Scratch, para crear una adaptación que permita evaluar proyectos AppInventor. El desarrollo de Dr. AppInventor se explicará con detalle en el capítulo~\ref{chap:design}.
+\item Noviembre de 2017 - febrero de 2018. Estudiar la aplicación de Dr. Scratch\footnote{\url{http://drscratch.org/}}, que evalúa proyectos Scratch, para crear una adaptación que permita evaluar proyectos AppInventor. El desarrollo de Dr. AppInventor se explicará con detalle en el capítulo~\ref{chap:design}.
 
-\item Febrero de 2018. Adaptar el algoritmo de Dr. AppInventor para extraer bloques y evaluar varios proyectos, guardando esta información en ficheros CSV.
+\item Febrero de 2018: Adaptar el algoritmo de Dr. AppInventor para extraer bloques y evaluar varios proyectos, guardando esta información en ficheros CSV.
 
-\item Finales de febrero de 2018 - Marzo de 2018. Obtener de la galería de AppInventor una gran cantidad de proyectos.
+\item Finales de febrero de 2018 - Marzo de 2018: Obtener de la galería de AppInventor una gran cantidad de proyectos.
 
-\item Marzo de 2018 - Abril de 2018. Analizar los CSV obtenidos con Dr. AppInventor utilizando la librería pandas en un Jupyter Notebook.
+\item Marzo de 2018 - abril de 2018: Analizar los CSV obtenidos con Dr. AppInventor utilizando la librería pandas en un Jupyter Notebook.
 \end{enumerate}
 
 % Unidos los objetivos específicos con la planificación temporal
@@ -342,7 +342,7 @@ Este entorno utiliza dos modos para la creación de una aplicación: \emph{Blocks}
     \label{figura:ai-blocks}
  \end{figure}
  
-\textbf{Designer}: en este modo se seleccionan los componentes que van a constituir la aplicación. Estos componentes pueden ser visuales (los que formarán la interfaz de usuario) o no visuales (diversas funcionalidades del dispositivo como el acelerómetro o Bluetooth, bases de datos o comandos que permiten controlar robots LEGO® MINDSTORMS® NXT). Se puede ver un ejemplo del modo ``designer'' en la Figura~\ref{figura:ai-designer}.
+\textbf{Designer}: en este modo se seleccionan los componentes que van a constituir la aplicación. Estos componentes pueden ser visuales (los que formarán la interfaz de usuario) o no visuales (diversas funcionalidades del dispositivo como el acelerómetro o Bluetooth, bases de datos o comandos que permiten controlar robots LEGO® MINDSTORMS® NXT). Se puede ver un ejemplo del modo ``designer'' en la figura~\ref{figura:ai-designer}.
  
   \begin{figure}
     \centering
@@ -415,7 +415,7 @@ Se complementa con otras tecnologías para modificar la apariencia de la página (
 
 \section{CSS}
 
-CSS (Cascade Style Sheets)~\cite{css}, son las siglas de hojas de estilo en cascada. Es el lenguaje que describe la presentación de una página web: colores, diseño y fuentes. Permite adaptar la presentación a distintos dispositivos, como pantallas de ordenador, móviles o tablets. Se puede utilizar con cualquier lenguaje de marcado basado en XML pero sobre todo se utiliza junto con HTML.
+CSS (Cascade Style Sheets)~\cite{css} son las siglas de hojas de estilo en cascada. Es el lenguaje que describe la presentación de una página web: colores, diseño y fuentes. Permite adaptar la presentación a distintos dispositivos, como pantallas de ordenador, móviles o tablets. Se puede utilizar con cualquier lenguaje de marcado basado en XML pero sobre todo se utiliza junto con HTML.
 
 Para dar estilo, se referencia el elemento deseado y se incluyen los atributos, por ejemplo: \\
 elemento \{
@@ -427,13 +427,13 @@ color: ``color''; \\
 
 \section{JavaScript}
 
-Es un lenguaje de programación desarrollado por Netscape que, originalmente, se llamó LiveScript. En 1995, como Java estaba en crecimiento, por razones de marketing comenzó a llamarse JavaScript, aunque los lenguajes no están relacionados entre sí~\cite{flanagan2006javascript}.
+JavaScript es un lenguaje de programación desarrollado por Netscape que, originalmente, se llamó LiveScript. En 1995, como Java estaba en crecimiento, por razones de marketing comenzó a llamarse JavaScript, aunque los lenguajes no están relacionados entre sí~\cite{flanagan2006javascript}.
 
 JavaScript es interpretado, basado en prototipos, dinámico y débilmente tipado. Está compuesto de sentencias, comandos que ejecutará el navegador, separadas con punto y coma (;).  Se caracteriza por ser el lenguaje del lado cliente en las aplicaciones web y se suele utilizar para: interacción con el navegador o con el documento HTML, para abrir conexiones con el servidor (AJAX) o para dibujar en la página (canvas).
 
 \section{jQuery}
 
-jQuery es una librería de JavaScript rápida, ligera y rica en funciones con la idea de escribir menos y hacer más. El propósito es facilitar el uso de JavaScript en los sitios web. Para ello, jQuery utiliza métodos de una sola línea que realizan tareas que con JavaScript ocuparían varias. También simplifica muchas de las funcionalidades que son más complicadas con JavaScript, como las llamadas AJAX o la manipulación de los elementos de un HTML.
+jQuery es una librería de JavaScript rápida, ligera y rica en funciones con la idea de \emph{escribir menos y hacer más}~\cite{mcfarland2011javascript}. El propósito es facilitar el uso de JavaScript en los sitios web. Para ello, jQuery utiliza métodos de una sola línea que realizan tareas que con JavaScript ocuparían varias. También simplifica muchas de las funcionalidades que son más complicadas con JavaScript, como las llamadas AJAX o la manipulación de los elementos de un HTML.
 
 Entre sus prestaciones destacamos: manipulación de HTML o CSS; manejo de eventos; desarrollo de animaciones; interacción con AJAX.
 
@@ -449,7 +449,7 @@ La Tabla~\ref{tabla:comp-code} muestra la reducción que proporciona jQuery respe
    onload = ``changeBackgroundColor(`red');'' & \\
    \hline
  \end{tabular}
- \caption{Comparación de los códigos JS y jQuery.}
+ \caption{Comparación del mismo código en JavaScript \emph{a secas} y utilizando la biblioteca jQuery.}
  \label{tabla:comp-code}
  \end{center}
 \end{table}
@@ -457,7 +457,7 @@ La Tabla~\ref{tabla:comp-code} muestra la reducción que proporciona jQuery respe
 \section{Dr. Scratch} 
 \label{sec:drscratch}
 
-Antes de empezar a implementar la aplicación web Dr. AppInventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario \emph{feedback} para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. Los usuarios tienen la opción también de descargar un diploma con los resultados de su proyecto. En la Figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
+Antes de empezar a implementar la aplicación web Dr. AppInventor, fue precisa una comprensión de lo que se pretendía desarrollar. Esta aplicación está basada en Dr. Scratch\footnote{\url{http://www.drscratch.org/}} que realiza una evaluación del pensamiento computacional en proyectos Scratch\footnote{\url{https://scratch.mit.edu/}}. Dr. Scratch obtiene una puntuación en función de los siguientes aspectos: abstracción, pensamiento lógico, sincronización, paralelismo, control de flujo, interactividad con el usuario y representación de la información. Cada uno se valora del 0 al 3 y la suma de todos es la puntuación final~\cite{moreno2015dr}. Además de la puntuación, ofrece al usuario \emph{feedback} para mejorar dichos aspectos y, dependiendo de la puntuación, resalta malos hábitos de programación como puede ser código repetido o código que nunca se llega a ejecutar. Los usuarios tienen la opción también de descargar un diploma con los resultados de su proyecto. En la figura~\ref{figura:dr-scratch} se puede ver un ejemplo de análisis de un proyecto.
 
 \begin{figure}[!h]
   \centering
@@ -503,7 +503,7 @@ Junto con pandas, se suele utilizar Jupyter Notebook\footnote{\url{http://jupyte
 
 \end{itemize}
 
-La Figura~\ref{figura:pandas} es un ejemplo de instrucciones de pandas en un Jupyter Notebook.
+La figura~\ref{figura:pandas} es un ejemplo de instrucciones de pandas en un Jupyter Notebook.
 
 \begin{figure}[!h]
   \centering
@@ -522,7 +522,7 @@ La Figura~\ref{figura:pandas} es un ejemplo de instrucciones de pandas en un Jup
 \chapter{Diseño e implementación}
 \label{chap:design}
 
-En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto, que ya se mencionaron brevemente en la sección~\ref{sec:objetivos-especificos}. La Figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos.
+En este capítulo se explican los pasos necesarios para poder llevar a cabo el proyecto, que ya se mencionaron brevemente en la sección~\ref{sec:objetivos-especificos}. La figura~\ref{figura:diag} representa un diagrama de bloques con los hitos seguidos.
 
 \begin{figure}[!h]
   \centering
@@ -579,7 +579,7 @@ La carpeta \emph{youngandroidproject} contiene el fichero con las propiedades de
 
 La carpeta de verdadero interés para el análisis es \emph{src}, dentro de la cual están los ficheros .bky y .scm, cada una de las pantallas de la aplicación está formada por estos dos ficheros, cuyo nombre coincide con el nombre de la pantalla:
 \begin{itemize}
-  \item \textbf{bky}: este fichero contiene, en forma de XML, los bloques que componen el programa, sus propiedades y cómo se relacionan entre sí. Para extraer los bloques, el algoritmo tendrá que buscar todas las etiquetas \emph{block} y almacenar de cada una el atributo \emph{type}. Podemos ver un ejemplo de este tipo de fichero en la Figura~\ref{figura:bky}. En este ejemplo, el primer bloque que se almacenaría lo vemos en la segunda línea: component\_event.
+  \item \textbf{bky}: este fichero contiene, en forma de XML, los bloques que componen el programa, sus propiedades y cómo se relacionan entre sí. Para extraer los bloques, el algoritmo tendrá que buscar todas las etiquetas \emph{block} y almacenar de cada una el atributo \emph{type}. Podemos ver un ejemplo de este tipo de fichero en la figura~\ref{figura:bky}. En este ejemplo, el primer bloque que se almacenaría lo vemos en la segunda línea: component\_event.
   
 \begin{figure}[!h]
   \centering
@@ -588,7 +588,7 @@ La carpeta de verdadero interés para el análisis es \emph{src}, dentro de la cua
   \label{figura:bky}
 \end{figure}
   
-  \item \textbf{scm}: de manera similar al fichero .bky, aquí encontramos, con estructura JSON, los componentes y sus propiedades. Para extraer los componentes, el algoritmo busca todos los elementos con clave \emph{\$Name} y almacena su valor, excepto del primer elemento ya que no es un componente en sí, sino que representa los ajustes (``Settings") de la aplicación. La Figura~\ref{figura:scm} es un ejemplo de este tipo de fichero. El primer componente en el ejemplo se encuentra en la línea 5: HorizontalArrangement1.  
+  \item \textbf{scm}: de manera similar al fichero .bky, aquí encontramos, con estructura JSON, los componentes y sus propiedades. Para extraer los componentes, el algoritmo busca todos los elementos con clave \emph{\$Name} y almacena su valor, excepto del primer elemento ya que no es un componente en sí, sino que representa los ajustes (``Settings") de la aplicación. La figura~\ref{figura:scm} es un ejemplo de este tipo de fichero. El primer componente en el ejemplo se encuentra en la línea 5: HorizontalArrangement1.  
   
 \begin{figure}[!h]
   \centering
@@ -600,7 +600,8 @@ La carpeta de verdadero interés para el análisis es \emph{src}, dentro de la cua
 
 \subsection{Puntuación del proyecto}
 \label{sec:score}
-Teniendo extraídos todos los bloques y componentes, comienza la fase de clasificación. Para clasificar (y, posteriormente, puntuar) nos basamos en la rúbrica de Code Master\footnote{\url{http://apps.computacaonaescola.ufsc.br:8080/rubrica_appinventor.jsp}}, una herramienta que analiza proyectos Snap! y AppInventor. Los criterios para obtener la puntuación son los siguientes: 
+
+La la fase de clasificación comienza cuando se han extraído todos los bloques y componentes. Para clasificar (y, posteriormente, puntuar) nos basamos en la rúbrica de Code Master\footnote{\url{http://apps.computacaonaescola.ufsc.br:8080/rubrica_appinventor.jsp}}~\cite{von2018codemaster}, una herramienta que analiza proyectos Snap! y AppInventor. Los criterios para obtener la puntuación son los siguientes: 
 
 \textbf{Screens}: hay que tener en cuenta tres cosas: el número de pantallas, si las pantallas contienen componentes visuales o no y si las pantallas cambian de estado programáticamente. Para obtener el número de pantallas, contamos el número de ficheros .bky (también se podrían contar los .scm y obtendríamos el mismo resultado). Si queremos ver si una pantalla contiene componentes visuales, tenemos que comprobar si alguno de sus componentes están en la lista de visuales. Por último, si la pantalla contiene cualquier bloque se puede decir que, potencialmente, cambiará de estado.
 
@@ -632,7 +633,7 @@ Teniendo extraídos todos los bloques y componentes, comienza la fase de clasific
 
 \textbf{Drawing and Animation}: para evaluar los componentes de dibujo y animación se tiene en cuenta el uso de estos componentes: canvas (1 punto), bola (2 puntos) e imagen interactiva (3 puntos).
 
-En la aplicación web, el usuario selecciona el proyecto que desea evaluar y lo sube. La aplicación realiza el análisis de los bloques y componentes siguiendo estos criterios y cuando se tienen todos puntuados, se muestra la página de resultados, similar a la de Dr. Scratch. Más adelante, en la Figura~\ref{figura:dr-ai-score} veremos la evaluación de un proyecto con nivel alto.
+En la aplicación web, el usuario selecciona el proyecto que desea evaluar y lo sube. La aplicación realiza el análisis de los bloques y componentes siguiendo estos criterios y cuando se tienen todos puntuados, se muestra la página de resultados, similar a la de Dr. Scratch. Más adelante, en la figura~\ref{figura:dr-ai-score} veremos la evaluación de un proyecto con nivel alto.
 
 \section{Dr. AppInventor para múltiples proyectos}
 \label{sec:dr-ai-multi}
@@ -642,7 +643,7 @@ Ya tenemos el algoritmo que extrae los bloques, los clasifica y devuelve una eva
 \subsection{Recopilación de proyectos}
 \label{subsec:projects}
 
-Para obtener los proyectos hay que acceder a la galería de AppInventor (puede verse en la Figura~\ref{figura:gallery}) y seleccionar los proyectos deseados. En nuestro caso, tenemos 62 proyectos de la sección ``Popular'' y 1.160 de la sección ``Recent'', por orden de aparición. 
+Para obtener los proyectos hay que acceder a la galería de AppInventor (puede verse en la figura~\ref{figura:gallery}) y seleccionar los proyectos deseados. En nuestro caso, tenemos 62 proyectos de la sección ``Popular'' y 1.160 de la sección ``Recent'', por orden de aparición. 
 
 Para descargar los proyectos es necesario iniciar sesión con una cuenta de Gmail, acceder a la galería, copiar el proyecto al perfil propio y, por último, descargarlo. El proceso se trató de automatizar lo máximo posible, tanto como la web de AppInventor permitió. Con un script se copiaban los proyectos de la galería al perfil y, como no se pueden descargar todos los proyectos del perfil a la vez, empleamos otro script para descargarlos uno a uno.
 
@@ -656,7 +657,7 @@ Para descargar los proyectos es necesario iniciar sesión con una cuenta de Gmail
 \newpage
 \subsection{Adaptación del algoritmo}
 
-El nuevo algoritmo analiza cada uno de los proyectos obtenidos, situados en un mismo directorio, de la misma manera que antes, pero ahora se guardan las puntuaciones de los criterios y la puntuación total en forma de CSV (Figura~\ref{figura:csv-ct}).
+El nuevo algoritmo analiza cada uno de los proyectos obtenidos, situados en un mismo directorio, de la misma manera que antes, pero ahora se guardan las puntuaciones de los criterios y la puntuación total en forma de CSV (figura~\ref{figura:csv-ct}).
 
 \begin{figure}[!h]
   \centering
@@ -665,7 +666,7 @@ El nuevo algoritmo analiza cada uno de los proyectos obtenidos, situados en un m
   \label{figura:csv-ct}
 \end{figure}
 
-Además, se crea un nuevo diccionario que tiene como clave los tipos de bloques que se emplean en el proyecto y el número de apariciones en los .bky como valor. Este diccionario se adapta para almacenarlo como otro CSV (Figura~\ref{figura:csv-blocks}) para el posterior análisis de ambos ficheros.
+Además, se crea un nuevo diccionario que tiene como clave los tipos de bloques que se emplean en el proyecto y el número de apariciones en los .bky como valor. Este diccionario se adapta para almacenarlo como otro CSV (figura~\ref{figura:csv-blocks}) para el posterior análisis de ambos ficheros.
 
 \begin{figure}[!h]
   \centering
@@ -679,9 +680,9 @@ Además, se crea un nuevo diccionario que tiene como clave los tipos de bloques q
 
 \subsection{Página de inicio}
 
-La web que verá el usuario al entrar en Dr. AppInventor tiene el aspecto mostrado en la Figura~\ref{figura:dr-ai-home}. La apariencia es exactamente la de Dr. Scratch, utilizamos todas las secciones e imágenes cambiando Scratch por AppInventor. 
+La web que verá el usuario al entrar en Dr. AppInventor tiene el aspecto mostrado en la figura~\ref{figura:dr-ai-home}. La apariencia es exactamente la de Dr. Scratch, utilizamos todas las secciones e imágenes cambiando Scratch por AppInventor. 
 
-Para subir el proyecto que se desea analizar, a diferencia de Dr. Scratch, sólo se pueden subir archivos locales, ya que AppInventor no proporciona una URL desde la que descargar los proyectos. En el apartado de subida, pulsando la palabra ``proyecto'' de color rojo, aparece una imagen que muestra cómo el usuario puede descargar los proyectos de AppInventor a su ordenador. Esta imagen puede verse en la Figura~\ref{figura:dr-ai-help}
+Para subir el proyecto que se desea analizar, a diferencia de Dr. Scratch, sólo se pueden subir archivos locales, ya que AppInventor no proporciona una URL desde la que descargar los proyectos. En el apartado de subida, pulsando la palabra ``proyecto'' de color rojo, aparece una imagen que muestra cómo el usuario puede descargar los proyectos de AppInventor a su ordenador. Esta imagen puede verse en la figura~\ref{figura:dr-ai-help}.
 
 \begin{figure}[!h]
   \centering
@@ -700,7 +701,7 @@ Para subir el proyecto que se desea analizar, a diferencia de Dr. Scratch, sólo 
 \subsection{Página de resultados}
 \label{app:interfaz-resultados}
 
-En la Figura~\ref{figura:dr-ai-score} se muestra un ejemplo del interfaz web que el usuario ve una vez su proyecto ha sido analizado. Como mencionamos anteriormente, solo se implementa la evaluación de los criterios del pensamiento computacional. 
+En la figura~\ref{figura:dr-ai-score} se muestra un ejemplo del interfaz web que el usuario ve una vez su proyecto ha sido analizado. Como mencionamos anteriormente, solo se implementa la evaluación de los criterios del pensamiento computacional. 
 
 A la izquierda se puede ver en primer lugar la puntuación total y debajo las funcionalidades de Dr. Scratch que no se han implementado para este proyecto: ``Mejores prácticas'' que muestran los malos hábitos de programación en el proyecto y ``Certificado del proyecto'' donde se puede descargar un diploma con el resultado obtenido. 
 
@@ -749,7 +750,7 @@ Máximo & 5.476 & 5.476 & 5.476 \\ \hline
 
 \section{Variedad en los proyectos}
 
-Llamamos variedad al número de bloques de diferente tipo empleados en un proyecto. En el análisis, la variedad se cuenta como el número de columnas (que representan los tipos de bloques) con valor distinto de cero, para todas las filas (que representan los proyectos). La Figura~\ref{figura:variety} representa la distribución de la variedad en todos los proyectos, donde el eje X es la variedad y el eje Y, la frecuencia, o las veces que se da una variedad. Observamos que los valores predominantes de la variedad están entre 3 y 6, mientras que según aumenta de valor, disminuye la frecuencia de proyectos. La máxima variedad es 61 y solamente un proyecto la tiene.  
+Llamamos variedad al número de bloques de diferente tipo empleados en un proyecto. En el análisis, la variedad se cuenta como el número de columnas (que representan los tipos de bloques) con valor distinto de cero, para todas las filas (que representan los proyectos). La figura~\ref{figura:variety} representa la distribución de la variedad en todos los proyectos, donde el eje X es la variedad y el eje Y, la frecuencia, o las veces que se da una variedad. Observamos que los valores predominantes de la variedad están entre 3 y 6, mientras que según aumenta de valor, disminuye la frecuencia de proyectos. La máxima variedad es 61 y solamente un proyecto la tiene.  
 
 \begin{figure}[!h]
   \centering
@@ -954,7 +955,7 @@ Los archivos que necesita Dr. AppInventor se encuentran en un repositorio de Git
   \item Abrir el terminal en el directorio donde se encuentre el código.
   \item Ejecutar el comando: \emph{python manage.py migrate}.
   \item Ejecutar el comando: \emph{python manage.py runserver}.
-  \item Abrir en un navegador la siguiente URL: localhost:8000.
+  \item Abrir en un navegador la siguiente URL: http://localhost:8000.
 \end{enumerate}
 
 En el navegador aparecerá la página de inicio, vista en la imagen~\ref{figura:dr-ai-home}. Para subir el proyecto que se desea analizar hay que pulsar en ``Elige Proyecto'' y seleccionar el archivo. El análisis comenzará tras hacer click en el botón ``ANALIZA MI PROYECTO'' y la aplicación pasará a la página con los resultados del proyecto, similar a la vista en la imagen~\ref{figura:dr-ai-score}
